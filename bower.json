@@ -1,0 +1,22 @@
+{
+  "name": "axelniklasson.se",
+  "description": "bower.json for my website",
+  "main": "",
+  "authors": [
+    "Axel Niklasson <info@axelniklasson.se>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/axelniklasson/axelniklasson.se",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "wow": "wowjs#^1.1.2",
+    "Chart.js": "chartjs#^1.0.2"
+  }
+}
