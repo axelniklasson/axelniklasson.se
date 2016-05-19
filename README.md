@@ -1,2 +1,2 @@
-# axelniklasson.github.io
-Hosting for my website.
+# axelniklasson.se
+Code for my static website on gh-pages.
