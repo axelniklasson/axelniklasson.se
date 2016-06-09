@@ -1,2 +1,3 @@
 # axelniklasson.se
-Code for my static website on gh-pages.
+
+Source code for my personal website.
