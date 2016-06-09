@@ -51,7 +51,7 @@
             <hr class="primary">
             <div class="row">
                 <div class="col-md-4 text-center">
-                    <img class="img-responsive img-circle center" width="80%" src="dist/profile.jpg">
+                    <img class="img-responsive img-circle center" width="80%" src="dist/profile.png">
                 </div>
                 <div class="col-md-8 text-center">
                     <h3>Hello!</h3>
@@ -77,7 +77,7 @@
 
                 <div class="row text-center">
                     <div class="col-md-6 col-md-offset-3">
-                        <h4>Competed in <a href="http://www.gcdc.net/en/" target="_blank">GCDC</a> with Chalmers</h4>
+                        <h4>Participated in <a href="http://www.gcdc.net/en/" target="_blank">GCDC</a> in the Netherlands</h4>
                         <p class="desc">End of May, 2016</p>
                         <p>Our B.Sc. group went to Helmond, just outside the Netherlands for about a week where we installed our HMI in Chalmers' car and participated in the competition. We were part of a team with a bunch of great people and had loads of fun. Our team finished in fourth place of ten cars, but our HMI was named as one of the best, so overall a great experience.</p>
                         <p>Our very own producer, David Bergström, made a video documenting our trip to the Netherlands, which can be watched below.</p><br>
@@ -157,7 +157,16 @@
                 <p class="desc">Say hello!</p>
                 <hr class="primary">
 
-                <p>The easiest way to reach me is to send an email to<br><br>info[at]axelniklasson.se<br><br>or call me at <br><br>+46 72 - 510 12 34</p>
+                <div class="col-md-8 col-md-offset-2">
+                    <form class="contact-form" method="get" novalidate>
+                        <input name="name" type="text" placeholder="Name" id="name-field"><br>
+                        <input name="email" type="email" placeholder="Email" id="email-field"><br>
+                        <input name="phone" type="phone" placeholder="Phone number (optional)" id="phone-field"><br>                    
+                        <textarea name="message" placeholder="Message" id="message-field"></textarea><br>
+                        <p id="success-message">Message sent!</p>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
 
             </div>
         </section>
