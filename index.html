@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="axelniklasson">
     <head>
         <title>Axel Niklasson</title>
 
@@ -40,7 +40,7 @@
         </script>
         <!-- End Google Analytics -->
     </head>
-    <body>
+    <body ng-controller="MainController">
         <nav class="navbar-default" role="navigation">
             <div class="container">
                 <div class="navbar-header">
@@ -87,18 +87,16 @@
                 </div>
                 <div class="col-md-8 text-center">
                     <h3>Hello!</h3>
-                    <p>My name is Axel Niklasson and I am 22 years old. I am
-                    working as a consultant at <a href="http://xlent.se" target="_blank">XLENT</a>, where I mainly focus on web development.</p>
-                    <p>I moved to Skåne a couple of months ago after finishing my Bachelor's Thesis at Chalmers University of Tecknology and I am currently taking a gap year for work and backpacking in Southeast Asia.</p>
-                    <p>To find out more about me, my resume can be accessed from below; </p>
-                    <a class="resume" href="dist/CV_en.pdf">English</a><span class="resume"> / </span><a class="resume" href="dist/CV.pdf">Swedish</a>
-                    <br><br><p>My B.Sc. thesis can be found <a href="dist/thesis.pdf">here</a>.</p>
+                    <p>My name is Axel Niklasson and I am 22 years old. I usually study to be a software engineer at Chalmers University of Technology and work
+                    as a consultant at <a href="http://xlent.se" target="_blank">XLENT</a>, but I am currently backpacking around Southeast Asia!</p>
+                    <p>I am (sometimes) updating a travel blog located at <a href="https://resa.axelniklasson.se">resa.axelniklasson.se</a>, which is running on a
+                    <a href="https://github.com/WriterCMS" target="_blank">self-built CMS</a>, which is why I unfortunately cannot guarantee a bug-free experience. Feel free to take a look!</p>
                 </div>
             </div>
         </div>
         </section>
 
-        <hr class="divider">
+        <!-- <hr class="divider">
 
         <section id="skillset">
         <div class="container text-center">
@@ -137,17 +135,32 @@
                 </div>
             </div>
         </div>
-        </section>
+        </section> -->
 
         <hr class="divider">
 
         <section id="latest">
             <div class="container text-center">
-                <h1>Latest</h1>
-                <p class="desc">What I have been up to lately</p>
+                <h1>Latest posts</h1>
+                <p class="desc">My travel blog can be found <a href="https://resa.axelniklasson.se">here</a>.</p>
                 <hr class="primary">
 
-                <div class="row text-center">
+                <div class="posts-wrapper">
+                    <div class="row post" ng-repeat="post in posts">
+                        <div class="col-md-4">
+                            <img ng-if="post.images.length > 0" class="img-circle img-responsive" ng-src="{{ post.images[0] }}" alt="">
+                            <img ng-if="post.images.length == 0" class="img-circle img-responsive" ng-src="http://66.media.tumblr.com/3dbf290f6477026a098a8369e1d96665/tumblr_mj9jshtzH01qadknpo1_1280.jpg" alt="">
+                        </div>
+
+                        <div class="col-md-8 text-left">
+                            <h3>{{ post.title }}</h3>
+                            <p class="truncate">{{ post.content }}</p>
+                            <a ng-href="https://resa.axelniklasson.se/posts/{{ post.year }}/{{ post.month }}/{{ post.slug }}">Read more</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- <div class="row text-center">
                     <div class="col-md-8 col-md-offset-2">
                         <h4>Published two open-source packages</h4>
                         <p class="desc">November, 2016</p>
@@ -184,7 +197,7 @@
                         <p>Since I was unable to find a blog tool that suited me, I started designing and implementing my own. The tool is called <a href="http://github.com/axelniklasson/WriterCMS.git" target="_blank">WriterCMS</a> and I have actually made progress really fast. At the moment, creating and managing posts along with categories are working as intended along with authentication and some other good stuff.</p>
                         <p>You can check it out in action <a href="https://resa.axelniklasson.se" target="_blank">here</a>! (Swedish content)</p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
 

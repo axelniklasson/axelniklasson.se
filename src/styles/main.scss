@@ -42,6 +42,10 @@ a.resume, a.resume:active, a.resume:visited, span.resume {
     font-weight: 200;
 }
 
+a, a:active, a:visited {
+    text-decoration: none !important;
+}
+
 span.resume {
     color: black;
 }
@@ -201,4 +205,25 @@ iframe {
 
     }
 
+}
+
+.post {
+    padding: 20px;
+
+    img {
+        height: 200px;
+        width: 200px;
+        margin: auto;
+    }
+
+    hr {
+        margin: 40px auto;
+    }
+}
+
+.truncate {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 100%;
+    overflow: hidden;
 }

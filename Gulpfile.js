@@ -11,7 +11,7 @@ var ghPages = require('gulp-gh-pages');
 /* Fetch all vendor files and concatenate to one file */
 gulp.task('bower', function() {
     var cssFilter = filter(['**/*.css', '!**/*.min.css'], {restore: true});
-    var jsFilter = filter(['**/Chart.js', '**/dist/**/*.js', '!**/*.min.js']);
+    var jsFilter = filter(['**/Chart.js', '**/angular.js', '**/dist/**/*.js', '!**/*.min.js']);
     return bower()
         .pipe(cssFilter)
         .pipe(concat('vendor.css'))
