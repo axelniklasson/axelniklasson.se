@@ -89,7 +89,7 @@
                     <h3>Hello!</h3>
                     <p>My name is Axel Niklasson and I am 22 years old. I usually study to be a software engineer at Chalmers University of Technology and work
                     as a consultant at <a href="http://xlent.se" target="_blank">XLENT</a>, but I am currently backpacking around Southeast Asia!</p>
-                    <p>I am (sometimes) updating a travel blog located at <a href="https://resa.axelniklasson.se">resa.axelniklasson.se</a>, which is running on a
+                    <p>I am (sometimes) updating a travel blog, together with my travel buddy Martin, located at <a href="https://resa.axelniklasson.se">resa.axelniklasson.se</a>, which is running on a
                     <a href="https://github.com/WriterCMS" target="_blank">self-built CMS</a>, which is why I unfortunately cannot guarantee a bug-free experience. Feel free to take a look!</p>
                 </div>
             </div>
@@ -142,7 +142,7 @@
         <section id="latest">
             <div class="container text-center">
                 <h1>Latest posts</h1>
-                <p class="desc">My travel blog can be found <a href="https://resa.axelniklasson.se">here</a>.</p>
+                <p class="desc">Our travel blog can be found <a href="https://resa.axelniklasson.se">here</a>.</p>
                 <hr class="primary">
 
                 <div class="posts-wrapper">
@@ -155,6 +155,8 @@
                         <div class="col-md-8 text-left">
                             <h3>{{ post.title }}</h3>
                             <p class="truncate">{{ post.content }}</p>
+                            <p><span class="glyphicon glyphicon-map-marker"></span> {{ post.location.name }}</p>
+                            <p><span class="glyphicon glyphicon-time"></span> {{ post.date | prettyDate }}</p>
                             <a ng-href="https://resa.axelniklasson.se/posts/{{ post.year }}/{{ post.month }}/{{ post.slug }}">Read more</a>
                         </div>
                     </div>
