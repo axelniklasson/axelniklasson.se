@@ -17,7 +17,7 @@ var MONTHS = [
 app.filter('prettyDate', function() {
     return function(dateString) {
         var date = new Date(dateString);
-        return MONTHS[date.getMonth()] + ' ' + (date.getDay() + 1);
+        return MONTHS[date.getMonth()] + ' ' + (date.getDate());
     };
 });
 
