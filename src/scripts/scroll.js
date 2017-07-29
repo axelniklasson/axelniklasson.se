@@ -17,5 +17,7 @@ $(function() {
 
 // Close nav on click
 $('.nav a').on('click', function(){
-    $('.navbar-toggle').click() //bootstrap 3.x by Richard
+    if ($('.navbar-toggle').first().is(':visible')) {
+        $('.navbar-toggle').click();
+    }
 });
