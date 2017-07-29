@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app="axelniklasson">
+<html>
     <head>
         <title>Axel Niklasson</title>
 
@@ -40,43 +40,39 @@
         </script>
         <!-- End Google Analytics -->
     </head>
-    <body ng-controller="MainController">
-        <nav class="navbar-default" role="navigation">
-            <div class="container">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#about">Axel Niklasson</a>
-                </div>
-
-                <div class="collapse navbar-collapse navbar-right navbar-collapse">
-                    <ul class="nav navbar-nav">
-
-                        <li class="menuItem"><a href="#about">About me</a></li>
-                        <!-- <li class="menuItem"><a href="#skillset">Skillset</a></li> -->
-                        <li class="menuItem"><a href="#latest">Latest posts</a></li>
-                        <li class="menuItem"><a href="#experience">Experience</a></li>
-                        <li class="menuItem"><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-
+    <body>
+    <nav class="navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#about">Axel Niklasson</a>
             </div>
-        </nav>
 
-        <div id="splash">
-            <div id="splashTextWrapper">
-                <span id="name">Axel Niklasson</span><br>
-                <span id="desc">B.Sc. in Software Engineering</span><br><br>
-                <span id="desc">Consultant at <strong>XLENT</strong></span><br>
-                <a class="btn btn-primary" href="#about">Read more</a>
+            <div class="collapse navbar-collapse navbar-right navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="menuItem"><a href="#about">About me</a></li>
+                    <!-- <li class="menuItem"><a href="#projects">Projects</a></li> -->
+                    <li class="menuItem"><a href="#experience">Experience</a></li>
+                    <li class="menuItem"><a href="#contact">Contact</a></li>
+                </ul>
             </div>
         </div>
+    </nav>
 
-        <section id="about">
+    <div id="splash">
+        <div id="splashTextWrapper">
+            <span id="name">Axel Niklasson</span><br>
+            <span id="desc">M. Sc. student at <strong>Chalmers University of Technology</strong></span><br><br>
+            <a class="btn btn-primary" href="#about">More about me</a>
+        </div>
+    </div>
+
+    <section id="about">
         <div class="container text-center">
             <h1>About me</h1>
             <p class="desc">Find out more about me</p>
@@ -87,200 +83,88 @@
                 </div>
                 <div class="col-md-8 text-center">
                     <h3>Hello!</h3>
-                    <p>My name is Axel Niklasson and I am 22 years old. I usually study to be a software engineer at Chalmers University of Technology and work
-                    as a consultant at <a href="http://xlent.se" target="_blank">XLENT</a>, but I am currently backpacking around Southeast Asia!</p>
-                    <p>I am (sometimes) updating a travel blog, together with my travel buddy Martin, located at <a href="https://resa.axelniklasson.se">resa.axelniklasson.se</a>, which is running on a
-                    <a href="https://github.com/WriterCMS" target="_blank">self-built CMS</a>, which is why I unfortunately cannot guarantee a bug-free experience. Feel free to take a look!</p>
+                    <p>My name is Axel Niklasson and I am 22 years old. I am currently a M. Sc. student at
+                    <a href="http://www.chalmers.se/en/education/programmes/masters-info/Pages/Computer-systems-and-networks.aspx" target="_blank">Chalmers</a>, on my way to becoming a software engineer. I also work as a Student Brand Manager at <a href="https://www.netlight.com/">Netlight</a>, where
+                    I help them reach out to awesome students at Chalmers.</p>
+                    <p>I do other stuff as well. I love hacking on my own projects, hang out with friends and try to work out a couple of times a week as well.
+                    I also love scuba diving and tend to dive whenever I get the chance.</p>
+                    <p>I have also made my resume available in <a href="dist/CV_en.pdf">English</a> and <a href="dist/CV.pdf">Swedish</a>.</p>
                 </div>
             </div>
         </div>
-        </section>
+    </section>
 
-        <!-- <hr class="divider">
+    <hr class="divider">
 
-        <section id="skillset">
+    <section id="experience">
         <div class="container text-center">
-            <h1>Skillset</h1>
-            <p class="desc">What can I do?</p>
+            <h1>Experience</h1>
+            <p class="desc">What I have done so far</p>
             <hr class="primary">
+
             <div class="row text-center">
-                <div class="col-md-10 col-md-offset-1">
-                    <p>By combining studies along with part-time work during weekends and summers, I have managed to work with many different techniques and platforms. I tend to focus on web development, but I have also worked with native/hybrid mobile applications and backend .NET development. Lastly, I have also worked with deployment strategies and server management.</p>
-                    <p>My skills can (roughly) be summarized into the following areas;</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 skill-wrapper">
-                    <div class="skill">
-                        <span>Front-end</span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 skill-wrapper">
-                    <div class="skill">
-                        <span>Back-end</span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 skill-wrapper">
-                    <div class="skill">
-                        <span>Deployment</span>
-                    </div>
-                </div>
-
-                <div class="col-md-3 skill-wrapper">
-                    <div class="skill">
-                        <span>Mobile apps</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </section> -->
-
-        <hr class="divider">
-
-        <section id="latest">
-            <div class="container text-center">
-                <h1>Latest posts</h1>
-                <p class="desc">Our travel blog can be found <a href="https://resa.axelniklasson.se">here</a>.</p>
-                <hr class="primary">
-
-                <div class="posts-wrapper">
-                    <div class="row post" ng-repeat="post in posts">
-                        <div class="col-md-4">
-                            <img ng-if="post.images.length > 0" class="img-circle img-responsive" ng-src="{{ post.images[0] }}" alt="">
-                            <img ng-if="post.images.length == 0" class="img-circle img-responsive" src="dist/fallback.jpg" alt="">
-                        </div>
-
-                        <div class="col-md-8 text-left">
-                            <h3>{{ post.title }}</h3>
-                            <p class="truncate">{{ post.content }}</p>
-                            <p><span class="glyphicon glyphicon-map-marker"></span> {{ post.location.name }}</p>
-                            <p><span class="glyphicon glyphicon-time"></span> {{ post.date | prettyDate }}</p>
-                            <a ng-href="https://resa.axelniklasson.se/posts/{{ post.year }}/{{ post.month }}/{{ post.slug }}">Read more</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Published two open-source packages</h4>
-                        <p class="desc">November, 2016</p>
-                        <p>I first published a Python package called <a href="https://pypi.python.org/pypi/PyTrafik/0.2" target="_blank">PyTrafik</a>, which is a wrapper for Västtrafiks API. I started building this package
-                            some time ago, but I recently decided to publishit. The source code can be found <a href="https://github.com/axelniklasson/PyTrafik" target="_blank">here</a>.</p>
-                        <p>My second package is a work in progress, called <a href="https://www.npmjs.com/package/node-skanetrafiken">node-skanetrafiken</a>, which is a Node.js wrapper for Skånetrafikens Open API.
-                            The source code can be found <a href="https://github.com/axelniklasson/node-skanetrafiken" target="_blank">here</a>.</p>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Working, diving and playing with a new GoPro</h4>
-                        <p class="desc">September, 2016</p>
-                        <p>As mentioned, working and diving pretty much sums up my life right about now. I also bought a GoPro Hero 4 Silver, which is an incredibly entertaining toy.</p>
-                        <p>Me buying a GoPro has resulted in a short video, covering our latest dive at Limhamn, which can be watched below.</p><br>
-                        <iframe width="560" height="315" src="https://www.youtube.com/embed/N7ey2bxD5-w" frameborder="0" allowfullscreen></iframe>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Getting my PADI Open Water certificate</h4>
-                        <p class="desc">July, 2016</p>
-                        <p>Me and my family are currently studying to receive PADI Open Water certificates, enabling us to go diving when on vacations and so on. I am very excited regarding this, as I plan to go diving quite a few times when me and Martin are out backpacking in Southeast Asia.</p>
-                        <p>I am also working on a website related to our trip, which can be found at <a href="https://resa.axelniklasson.se" target="_blank">resa.axelniklasson.se</a>!</p>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Started developing my own blog tool</h4>
-                        <p class="desc">June, 2016</p>
-                        <p>Since I was unable to find a blog tool that suited me, I started designing and implementing my own. The tool is called <a href="http://github.com/axelniklasson/WriterCMS.git" target="_blank">WriterCMS</a> and I have actually made progress really fast. At the moment, creating and managing posts along with categories are working as intended along with authentication and some other good stuff.</p>
-                        <p>You can check it out in action <a href="https://resa.axelniklasson.se" target="_blank">here</a>! (Swedish content)</p>
-                    </div>
-                </div> -->
-            </div>
-        </section>
-
-        <hr class="divider">
-
-        <section id="experience">
-            <div class="container text-center">
-                <h1>Experience</h1>
-                <p class="desc">What I have done so far</p>
-                <hr class="primary">
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Consultant</h4>
-                        <p class="desc"><a href="http://www.xlent.se/" onclick="ga('send', 'event', 'Employers', 'click', 'XLENT');" target="_blank">XLENT</a><br>2016 -</p>
-                        <p>Building mobile applications in <a href="http://phonegap.com/" target="_blank">Phonegap</a> and <a href="https://angularjs.org/" target="_blank">Angular</a>, all the way from "Hello world!" to release in the app stores. Also working with web development, where <a href="https://angularjs.org/" target="_blank">Angular</a> and <a href="http://knockoutjs.com/" target="_blank">Knockout</a> receive most of my current focus. I am also involved in an exciting project, where we're building a brand new web platform for a client based on <a href="http://wordpress.com" target="_blank">Wordpress</a>.</p>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Self-employed software consultant</h4>
-                        <p class="desc">AxnIT Konsult<br>2014 - 2016</p>
-                        <p>Founded my own consultancy firm, where I mainly worked
-                        with web development, but also with design and app development.</p>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Software developer</h4>
-                        <p class="desc"><a href="http://www.arccore.com/" onclick="ga('send', 'event', 'Employers', 'click', 'ArcCore');" target="_blank">ArcCore</a><br>2014 - 2016</p>
-                        <p>Mainly worked with designing and implementing a backend
-                        for a customer management system, written in <a href="https://www.djangoproject.com/" target="_blank">Django</a>.</p>
-                    </div>
-                </div>
-
-                <div class="row text-center">
-                    <div class="col-md-8 col-md-offset-2">
-                        <h4>Software engineering student</h4>
-                        <p class="desc"><a href="http://www.chalmers.se/en/Pages/default.aspx" onclick="ga('send', 'event', 'Employers', 'click', 'Chalmers');" target="_blank">Chalmers University of Technology</a><br>2013 - 2016</p>
-                        <p>Studying to become a software engineer. Just finished my B.Sc. and am currently taking a gap year for work and backpacking.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <hr class="divider">
-
-        <section id="contact">
-            <div class="container text-center">
-                <h1>Contact</h1>
-                <p class="desc">Say hello!</p>
-                <hr class="primary">
                 <div class="col-md-8 col-md-offset-2">
-                    <!-- <form class="contact-form" method="get" novalidate>
-                        <input name="name" type="text" placeholder="Name" id="name-field"><br>
-                        <input name="email" type="email" placeholder="Email" id="email-field"><br>
-                        <input name="phone" type="phone" placeholder="Phone number (optional)" id="phone-field"><br>
-                        <textarea name="message" placeholder="Message" id="message-field"></textarea><br>
-                        <p id="success-message">Message sent!</p>
-                        <button type="submit">Send</button>
-                    </form> -->
-                    <p>Don't hesitate to send me an email at hello@axelniklasson.se and I will get back to you as soon as possible.</p>
+                    <h4>Student Brand Manager</h4>
+                    <h6>Current position</h6>
+                    <p class="desc"><a href="http://www.netlight.com/" onclick="ga('send', 'event', 'Employers', 'click', 'Netlight');" target="_blank">Netlight</a><br>2017 -</p>
+                    <p>Helping Netlight reach out to students and at the same time making sure that Netlight is present on campus.</p>
                 </div>
             </div>
-        </section>
 
-        <hr class="divider">
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4>Consultant</h4>
+                    <p class="desc"><a href="http://www.xlent.se/" onclick="ga('send', 'event', 'Employers', 'click', 'XLENT');" target="_blank">XLENT</a><br>2016 - 2017</p>
+                    <p>Worked as a consultant based both in Skåne and Stockholm, where I spent my time with technologies such as Angular, Phonegap, Node, Wordpress, C#/.NET, Docker and other fun stuff.</p>
+                </div>
+            </div>
 
-        <div class="container text-center">
-            <div class="row">
-                <div class="col-md-12">
-                    <p>Designed and developed by <a class="generic-link" onclick="ga('send', 'event', 'Social', 'click', 'GitHub');" href="https://github.com/axelniklasson" target="_blank">axelniklasson</a></p>
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4>Self-employed software consultant</h4>
+                    <p class="desc">AxnIT Konsult<br>2014 - 2016</p>
+                    <p>Founded my own consultancy firm, where I mainly worked
+                    with web development, but also with design and app development.</p>
+                </div>
+            </div>
+
+            <div class="row text-center">
+                <div class="col-md-8 col-md-offset-2">
+                    <h4>Software developer</h4>
+                    <p class="desc"><a href="http://www.arccore.com/" onclick="ga('send', 'event', 'Employers', 'click', 'ArcCore');" target="_blank">ArcCore</a><br>2014 - 2016</p>
+                    <p>Mainly worked with designing and implementing a backend
+                    for a customer management system, written in Python with Django on top.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-        <script src="dist/vendor.js"></script>
-        <script src="dist/scripts.js"></script>
+    <hr class="divider">
+
+    <section id="contact">
+        <div class="container text-center">
+            <h1>Contact</h1>
+            <p class="desc">Say hello!</p>
+            <hr class="primary">
+            <div class="col-md-8 col-md-offset-2">
+                <p>Don't hesitate to send me an email at <a href="mailto:hello@axelniklasson.se">hello@axelniklasson.se</a> and I will get back to you as soon as possible.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-md-12">
+                <p>Check out my <a class="generic-link" onclick="ga('send', 'event', 'Social', 'click', 'GitHub');" href="https://github.com/axelniklasson" target="_blank">GitHub</a></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="dist/vendor.js"></script>
+    <script src="dist/scripts.js"></script>
     </body>
 </html>
