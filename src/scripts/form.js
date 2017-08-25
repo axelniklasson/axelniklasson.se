@@ -9,7 +9,7 @@ $(document).ready(function() {
     $('#contact-form').submit(function(event) {
         $.ajax({
             type: 'POST',
-            url: '/php/sendmail.php',
+            url: '/dist/sendmail.php',
             data: {
                 name: nameInput.val(),
                 email: emailInput.val(),
