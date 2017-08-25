@@ -1,7 +1,4 @@
 <?php
-
-header("Access-Control-Allow-Origin: *");
-
 // Fetch token for mailman
 $token = file_get_contents('./token.txt', true);
 
