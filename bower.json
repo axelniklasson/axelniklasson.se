@@ -16,8 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "wow": "wowjs#^1.1.2",
-    "Chart.js": "chartjs#^1.0.2",
-    "angular": "^1.6.1"
+    "animate.css": "^3.5.2"
   }
 }
