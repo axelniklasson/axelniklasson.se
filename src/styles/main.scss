@@ -232,3 +232,24 @@ h1 {
   color: #2c3e50;
   font-weight:   100;
 }
+
+.portfolio-item {
+    font-weight: 300;
+    padding: 5%;
+    border-radius: 10px;
+    
+    &.red-white {
+        background: #B91E23;
+        color: white;
+
+        a {
+            color: white;
+        }
+    }
+}
+
+.shadow {
+    -webkit-box-shadow: 5px 5px 30px -10px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 30px -10px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 30px -10px rgba(0,0,0,0.75);
+}
