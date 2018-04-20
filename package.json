@@ -1,30 +1,17 @@
 {
   "name": "axelniklasson.se",
-  "version": "1.0.0",
-  "description": "package.json for my website",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/axelniklasson/axelniklasson.se.git"
-  },
-  "author": "Axel Niklasson <info@axelniklasson.se>",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/axelniklasson/axelniklasson.se/issues"
-  },
-  "homepage": "https://github.com/axelniklasson/axelniklasson.se#readme",
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-bower": "0.0.13",
-    "gulp-concat": "^2.6.0",
-    "gulp-filter": "^4.0.0",
-    "gulp-jshint": "^2.0.0",
-    "gulp-sass": "^2.2.0",
-    "gulp-server-livereload": "^1.7.3",
-    "jshint": "^2.9.1",
-    "jshint-stylish": "^2.1.0",
-    "main-bower-files": "^2.11.1"
-  },
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
-    "gulp-gh-pages": "^0.5.4"
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-router-dom": "^4.2.2",
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
   }
 }
