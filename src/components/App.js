@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import Profile from '../images/profile.jpg';
+import './App.scss';
 
 class App extends Component {
   render() {
     return (
       <div>
+        <p>Hello there</p>
       </div>
     );
   }
