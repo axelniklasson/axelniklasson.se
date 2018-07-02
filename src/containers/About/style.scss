@@ -11,3 +11,13 @@
     flex-basis: 40%;
   }
 }
+
+@media screen and (max-width: $mobile-max) {
+  .about {
+    flex-direction: column;
+
+    .content {
+      flex-basis: 100%;
+    }
+  }
+}

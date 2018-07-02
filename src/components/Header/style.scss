@@ -34,3 +34,33 @@
     border-radius: 50%;
   }
 }
+
+@media screen and (max-width: $mobile-max) {
+  .header  {
+    height: auto;
+
+    .container {
+      flex-direction: column;
+      text-align: center;
+
+      img {
+        order: 1;
+        margin: 20px 0;
+        width: 125px;
+        height: 125px;
+      }
+
+      .content {
+        order: 2;
+
+        h1, h2, span {
+          font-size: 20px;
+
+          &:first-child {
+            font-size: 30px;
+          }
+        }
+      }
+    }
+  }
+}

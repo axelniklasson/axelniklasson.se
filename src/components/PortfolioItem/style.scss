@@ -10,6 +10,10 @@
     max-width: 60%;
     order: 2;
     text-align: right;
+
+    h3 {
+      font-size: 40px;
+    }
   }
 
   .cta {
@@ -29,5 +33,23 @@
   &.left {
     .content { order: 1; text-align: left; }
     .cta { order: 2; }
+  }
+}
+
+@media screen and (max-width: $mobile-max) {
+  .portfolioItem {
+    text-align: center;
+    flex-direction: column;
+
+    .content {
+      max-width: unset;
+      order: 1;
+      text-align: center !important;
+      margin-bottom: 25px;
+
+      h3 {
+        margin-top: 0;
+      }
+    }
   }
 }

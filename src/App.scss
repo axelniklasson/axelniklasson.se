@@ -1,4 +1,5 @@
 $blue: #40485D;
+$mobile-max: 850px;
 
 body {
   margin: 0;
@@ -33,5 +34,34 @@ a {
 
   &.active {
     font-weight: bold;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@media screen and (max-width: $mobile-max) {
+  .container {
+    text-align: center;
+    width: 80%;
+  }
+
+  .hide-mobile {
+    display: none;
   }
 }

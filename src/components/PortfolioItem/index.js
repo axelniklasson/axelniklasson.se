@@ -11,13 +11,12 @@ const PortfolioItem = ({ title, description, link, logo, alignLeft }) => {
       onClick={() => window.open(link, '_blank')}
     >
       <div className="content">
-        <h2>{title}</h2>
+        <h3>{title}</h3>
         <p>{description}</p>
       </div>
 
       <div className="cta">
         <GitHubLogo />
-
         <a href={link}>Source code</a>
       </div>
     </div>
