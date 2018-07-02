@@ -14,7 +14,6 @@ class Navbar extends Component {
   }
 
   componentWillReceiveProps(newProps) {
-    console.log(this.props, newProps);
     if (this.props.showNavbar && !newProps.showNavbar) {
       this.className = 'navbar fadeOut';
     } else if (newProps.showNavbar) {
@@ -26,9 +25,13 @@ class Navbar extends Component {
 
   toggleDropdown = () => this.setState(prevState => ({ dropdownVisible: !prevState.dropdownVisible }))
 
+  jump = id => {
+    this.setState({ dropdownVisible: false });
+    document.getElementById(id).scrollIntoView();
+  }
+
   render() {
     const { headerImage, title, dropdownVisible } = this.state;
-    const { showNavbar } = this.props;
 
     return (
       <div className={this.className}>
@@ -38,9 +41,9 @@ class Navbar extends Component {
             <span className="hide-mobile">{title}</span>
           </div>
           <ul className={dropdownVisible ? 'expanded' : ''}>
-            <li><a className="active" href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#experience">Experience</a></li>
+            <li><a className="active" onClick={() => this.jump('about')}>About</a></li>
+            <li><a onClick={() => this.jump('portfolio')}>Portfolio</a></li>
+            <li><a onClick={() => this.jump('experience')}>Experience</a></li>
           </ul>
 
           <div

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 
 import About from "./containers/About";
 import Portfolio from "./containers/Portfolio";
+import Experience from "./containers/Experience";
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -70,6 +71,8 @@ class App extends Component {
           title="<Experience />"
           subtitle="Things I have done so far"
         /> 
+
+        <Experience />
       </div>
     );
   }

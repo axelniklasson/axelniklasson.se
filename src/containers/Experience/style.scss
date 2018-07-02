@@ -1,0 +1,19 @@
+@import '../../App.scss';
+
+.experience {
+  display: flex;
+  
+  .content {
+    flex-basis: 100%;
+  }
+}
+
+@media screen and (max-width: $mobile-max) {
+  .experience {
+    flex-direction: column;
+
+    .content {
+      flex-basis: 100%;
+    }
+  }
+}
