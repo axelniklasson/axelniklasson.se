@@ -7,6 +7,7 @@ import Experience from "./containers/Experience";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Divider from "./components/Divider";
+import Spinner from "./components/Spinner";
 
 import "./App.scss";
 
