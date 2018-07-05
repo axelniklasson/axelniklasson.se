@@ -21,12 +21,12 @@ class Header extends Component {
     return (
       <div className="header">
         <div className="container">
+          <img src={profilePicture} alt="profile" />
+
           <div className="content">
             <h1>{head1} <span className="bold">{head2}</span></h1>
             <h2>{sub1}<br />{sub2}</h2>
           </div>
-
-          <img src={profilePicture} alt="profile" />
         </div>
       </div>
     );

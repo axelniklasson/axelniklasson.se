@@ -9,10 +9,12 @@
   .container {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
   }
 
   .content {
+    margin-left: 50px;
+
     h1, h2 {
       color: rgba(255,255,255,0.55);
       font-size: 40px;
@@ -52,6 +54,7 @@
 
       .content {
         order: 2;
+        margin: auto;
 
         h1, h2, span {
           font-size: 20px;

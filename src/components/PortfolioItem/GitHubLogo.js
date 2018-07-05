@@ -1,7 +1,7 @@
 import React from "react";
 
 const GitHubLogo = () => (
-  <svg width="185px" height="180px" viewBox="0 0 185 180">
+  <svg width="150px" height="150px" viewBox="0 0 185 180">
     <g id="Design" stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
       <g id="Desktop" transform="translate(-1034.000000, -1416.000000)" fillRule="nonzero" fill="#40485D">
         <g id="Group-2" transform="translate(180.000000, 1416.000000)">

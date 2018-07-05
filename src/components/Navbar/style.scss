@@ -2,9 +2,10 @@
 
 .navbar {
   background: white;
-  padding: 25px 0;
+  padding: 15px 0;
   box-shadow: 0 3px 4px -2px black;
   position: fixed;
+  z-index: 3;
   width: 100%;
 
   animation-fill-mode: forwards;
@@ -12,12 +13,12 @@
   opacity: 0;
 
   &.fadeIn {
-    animation: fadeIn 0.4s;
+    animation: fadeIn 0.25s;
     opacity: 1;
   }
 
   &.fadeOut {
-    animation: fadeOut 0.4s;
+    animation: fadeOut 0.25s;
   }
 
   & > div {
@@ -36,8 +37,8 @@
       img {
         border-radius: 50%;
         height: 80%;
-        width: 100px;
-        height: 100px;
+        width: 75px;
+        height: 75px;
         margin-right: 20px;
       }
 
@@ -58,6 +59,7 @@
 
         a {
           transition: all 0.2s;
+          cursor: pointer;
         }
 
         &:hover {

@@ -40,19 +40,21 @@ class Navbar extends Component {
             <img src={headerImage} alt="header" />
             <span className="hide-mobile">{title}</span>
           </div>
-          <ul className={dropdownVisible ? 'expanded' : ''}>
-            <li><a className="active" onClick={() => this.jump('about')}>About</a></li>
-            <li><a onClick={() => this.jump('portfolio')}>Portfolio</a></li>
-            <li><a onClick={() => this.jump('experience')}>Experience</a></li>
-          </ul>
+          <div>
+            <ul className={dropdownVisible ? 'expanded' : ''}>
+              <li><a className="active" onClick={() => this.jump('about')}>About</a></li>
+              <li><a onClick={() => this.jump('portfolio')}>Portfolio</a></li>
+              <li><a onClick={() => this.jump('experience')}>Experience</a></li>
+            </ul>
 
-          <div
-            className={dropdownVisible ? 'menuIcon toggled' : 'menuIcon'}
-            onClick={this.toggleDropdown}
-          >
-            <div />
-            <div />
-            <div />
+            <div
+              className={dropdownVisible ? 'menuIcon toggled' : 'menuIcon'}
+              onClick={this.toggleDropdown}
+            >
+              <div />
+              <div />
+              <div />
+            </div>
           </div>
         </div>
       </div>

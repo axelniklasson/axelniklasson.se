@@ -39,7 +39,7 @@ class App extends Component {
   updateNav = () => {
     const offset = window.pageYOffset;
     this.setState({
-      showNavbar: offset > this.headerHeight - 25
+      showNavbar: offset >= this.headerHeight
     });
   }
 
