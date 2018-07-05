@@ -1,5 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 import Spinner from "../../components/Spinner";
+import Content from "../../components/Content";
 
 import "./style.scss";
 
@@ -9,19 +10,29 @@ class About extends Component {
 
     this.state = {
       isLoading: false,
-      heading: 'First, a little bit about me',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' 
+      heading: '',
+      content: ''
     };
   }
 
-  // simulate async call to contentful to render spinner for 1500ms
   componentDidMount() {
     this.setState({ isLoading: true });
-    setTimeout(() => this.setState({ isLoading: false }), 1500);
+    this.props.client.getEntries({
+      content_type: 'aboutSection',
+      limit: 1
+    }).then(entries => {
+      const { heading, content } = entries.items[0].fields;
+
+      this.setState({
+        isLoading: false,
+        heading,
+        content
+      });
+    })
   }
   
   render() {
-    const { isLoading, heading, text } = this.state;
+    const { isLoading, heading, content } = this.state;
 
     if (isLoading) {
       return <Spinner />; 
@@ -31,7 +42,7 @@ class About extends Component {
       <div className="about container" id="about">
         <div className="content">
           <h2>{heading}</h2>
-          <p>{text}</p>
+          <Content markdown={content} />
         </div>
 
         <div className="timeline"></div>

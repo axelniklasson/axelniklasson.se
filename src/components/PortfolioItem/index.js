@@ -1,5 +1,5 @@
 import React from "react";
-
+import Content from "../Content";
 import GitHubLogo from "./GitHubLogo";
 
 import "./style.scss";
@@ -8,14 +8,16 @@ const PortfolioItem = ({ title, description, link, logo, alignLeft }) => {
   return (
     <div 
       className={alignLeft ? 'portfolioItem left' : 'portfolioItem'}
-      onClick={() => window.open(link, '_blank')}
     >
       <div className="content">
         <h3>{title}</h3>
-        <p>{description}</p>
+        <Content markdown={description} />
       </div>
 
-      <div className="cta">
+      <div 
+        className="cta"
+        onClick={() => window.open(link, '_blank')}
+      >
         <GitHubLogo />
         <a href={link}>Source code</a>
       </div>

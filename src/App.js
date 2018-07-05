@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { createClient } from "contentful";
 
 import About from "./containers/About";
 import Portfolio from "./containers/Portfolio";
@@ -7,7 +8,6 @@ import Experience from "./containers/Experience";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Divider from "./components/Divider";
-import Spinner from "./components/Spinner";
 
 import "./App.scss";
 
@@ -16,14 +16,18 @@ class App extends Component {
     super(props);
 
     this.state = {
-      showNavbar: false
+      showNavbar: false,
+      client: createClient({
+        space: process.env.REACT_APP_CONTENTFUL_SPACE,
+        accessToken: process.env.REACT_APP_CONTENTFUL_ACCESSTOKEN
+      })
     };
 
     this.header = React.createRef();
   }
 
   throttle = (fn, wait) => {
-    var time = Date.now();
+    let time = Date.now();
     return function() {
       if ((time + wait - Date.now()) < 0) {
         fn();
@@ -50,14 +54,14 @@ class App extends Component {
   }
 
   render() {
-    const { showNavbar } = this.state;
+    const { showNavbar, client } = this.state;
 
     return (
       <div className="app">
         <Navbar showNavbar={showNavbar} />
         <Header ref={this.header} />
 
-        <About />
+        <About client={client} />
 
         <Divider
           bgColor='rgba(48,116,60,0.83)'
@@ -65,7 +69,7 @@ class App extends Component {
           subtitle="Selected personal projects"
         /> 
 
-        <Portfolio />
+        <Portfolio client={client} />
 
         <Divider
           bgColor='rgba(179,129,19,0.83)'
