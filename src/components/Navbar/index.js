@@ -30,21 +30,23 @@ class Navbar extends Component {
     document.getElementById(id).scrollIntoView();
   }
 
+
   render() {
     const { headerImage, title, dropdownVisible } = this.state;
+    const NavLink = ({id, text}) => <li><a onClick={() => this.jump(id)}>{text}</a></li>
 
     return (
       <div className={this.className}>
         <div>
           <div>
-            <img src={headerImage} alt="header" />
+            <img onClick={() => this.jump('header')} src={headerImage} alt="header" />
             <span className="hide-mobile">{title}</span>
           </div>
           <div>
             <ul className={dropdownVisible ? 'expanded' : ''}>
-              <li><a className="active" onClick={() => this.jump('about')}>About</a></li>
-              <li><a onClick={() => this.jump('portfolio')}>Portfolio</a></li>
-              <li><a onClick={() => this.jump('experience')}>Experience</a></li>
+              <NavLink id="about" text="About" />
+              <NavLink id="portfolio" text="Portfolio" />
+              <NavLink id="experience" text="Experience" />
             </ul>
 
             <div

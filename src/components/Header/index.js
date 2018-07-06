@@ -19,7 +19,7 @@ class Header extends Component {
     const { head1, head2, sub1, sub2, profilePicture } = this.state;
 
     return (
-      <div className="header">
+      <div className="header" id="header">
         <div className="container">
           <img src={profilePicture} alt="profile" />
 
