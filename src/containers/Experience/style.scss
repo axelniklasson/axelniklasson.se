@@ -2,9 +2,11 @@
 
 .experience {
   display: flex;
+  flex-wrap: wrap;
   
   .content {
     flex-basis: 100%;
+    margin-bottom: 25px;
   }
 }
 

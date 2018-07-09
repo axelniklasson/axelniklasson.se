@@ -1,35 +1,5 @@
 @import "../../App.scss";
 
-$c1: rgba(64, 72, 93, 0.4);
-$c2: rgba(64, 72, 93, 0);
-
-@-webkit-keyframes pulse {
-  0% {
-    -webkit-box-shadow: 0 0 0 0 $c1;
-  }
-  70% {
-      -webkit-box-shadow: 0 0 0 10px $c2;
-  }
-  100% {
-      -webkit-box-shadow: 0 0 0 0 $c2;
-  }
-}
-
-@keyframes pulse {
-  0% {
-      -moz-box-shadow: 0 0 0 0 $c1;
-      box-shadow: 0 0 0 0 $c1;
-  }
-  70% {
-      -moz-box-shadow: 0 0 0 10px $c2;
-      box-shadow: 0 0 0 10px $c2;
-  }
-  100% {
-      -moz-box-shadow: 0 0 0 0 $c2;
-      box-shadow: 0 0 0 0 $c2;
-  }
-}
-
 .timeline {
   display: flex;
   flex-direction: column;

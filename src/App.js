@@ -72,15 +72,15 @@ class App extends Component {
 
         <Portfolio client={client} />
 
-        <Social />
-
         <Divider
           bgColor='rgba(179,129,19,0.83)'
           title="<Experience />"
           subtitle="Things I have done so far"
         /> 
 
-        <Experience />
+        <Experience client={client} />
+
+        <Social />
       </div>
     );
   }

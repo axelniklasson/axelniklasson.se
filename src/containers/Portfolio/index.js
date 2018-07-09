@@ -30,9 +30,7 @@ class Portfolio extends Component {
   render() {
     const { isLoading, portfolio } = this.state;
 
-    if (isLoading) {
-      return <Spinner />; 
-    }
+    if (isLoading) return <Spinner />;
 
     return (
       <div className="portfolio container" id="portfolio">

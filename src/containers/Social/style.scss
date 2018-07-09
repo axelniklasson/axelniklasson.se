@@ -6,6 +6,7 @@
   align-items: center;
   padding: 75px 0;
   flex-wrap: wrap;
+  color: white;
 
   background: #141E30;  /* fallback for old browsers */
   background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
@@ -17,13 +18,14 @@
     font-size: 30px;
     margin-bottom: 30px;
     text-align: center;
+    margin-top: 0;
   }
-  
-  color: white;
   
   .social-item {
     margin: 0 75px;
     text-align: center;
+    cursor: pointer;
+    @include scaleOnHover;
 
     p {
       margin: 0;
@@ -35,7 +37,6 @@
     img {
       width: 75px;
       height: 75px;
-      cursor: pointer;
     }
   }
 }

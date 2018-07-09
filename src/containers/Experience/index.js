@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
+import Content from "../../components/Content";
+import Spinner from "../../components/Spinner";
+import ExperienceTimeline from "../../components/ExperienceTimeline";
 
 import "./style.scss";
 
@@ -7,20 +10,51 @@ class Experience extends Component {
     super(props);
 
     this.state = {
-      heading: 'Experience',
-      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.' 
+      heading: '',
+      content: '',
+      experienceItems: [] 
     };
+  }
+
+  componentDidMount() {
+    this.setState({ isLoading: true });
+
+    this.props.client.getEntries({
+      content_type: 'experienceSection',
+      limit: 1
+    }).then(entries => {
+      const { heading, content } = entries.items[0].fields;
+
+      this.props.client.getEntries({
+        content_type: 'experienceItem',
+        order: '-fields.order'
+      }).then(entries => {
+        this.setState({
+          isLoading: false,
+          heading,
+          content,
+          experienceItems: entries.items.map(el => ({
+            ...el.fields,
+            employerLogo: el.fields.employerLogo.fields.file.url
+          }))
+        });
+      })
+    })
   }
   
   render() {
-    const { heading, text } = this.state;
+    const { isLoading, heading, content, experienceItems } = this.state;
+
+    if (isLoading) return <Spinner />;
 
     return (
       <div className="experience container" id="experience">
         <div className="content">
           <h2>{heading}</h2>
-          <p>{text}</p>
+          <Content markdown={content} />
         </div>
+
+        <ExperienceTimeline items={experienceItems} />
       </div>
     );
   }

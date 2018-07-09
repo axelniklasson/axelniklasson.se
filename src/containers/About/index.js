@@ -43,9 +43,7 @@ class About extends Component {
   render() {
     const { isLoading, heading, content, timelineItems } = this.state;
 
-    if (isLoading) {
-      return <Spinner />; 
-    }
+    if (isLoading) return <Spinner />;
 
     return (
       <div className="about container" id="about">
