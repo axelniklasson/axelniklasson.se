@@ -1,0 +1,50 @@
+@import "../../App.scss";
+
+.social {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 75px 0;
+  flex-wrap: wrap;
+
+  background: #141E30;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #243B55, #141E30);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #243B55, #141E30); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  h2 {
+    color: white !important;
+    flex-basis: 100%;
+    font-size: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  color: white;
+  
+  .social-item {
+    margin: 0 75px;
+    text-align: center;
+
+    p {
+      margin: 0;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.9);
+      font-size: 20px;
+    }
+
+    img {
+      width: 75px;
+      height: 75px;
+      cursor: pointer;
+    }
+  }
+}
+
+@media screen and (max-width: $mobile-max) {
+  .social {
+    .social-item {
+      flex-basis: 100%;
+      margin: 25px 0;
+    }
+  }
+}

@@ -3,6 +3,7 @@ import { createClient } from "contentful";
 
 import About from "./containers/About";
 import Portfolio from "./containers/Portfolio";
+import Social from "./containers/Social";
 import Experience from "./containers/Experience";
 
 import Navbar from "./components/Navbar";
@@ -70,6 +71,8 @@ class App extends Component {
         /> 
 
         <Portfolio client={client} />
+
+        <Social />
 
         <Divider
           bgColor='rgba(179,129,19,0.83)'
