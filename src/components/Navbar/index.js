@@ -47,6 +47,7 @@ class Navbar extends Component {
               <NavLink id="about" text="About" />
               <NavLink id="portfolio" text="Portfolio" />
               <NavLink id="experience" text="Experience" />
+              <NavLink id="contact" text="Contact" />
             </ul>
 
             <div

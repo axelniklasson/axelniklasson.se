@@ -102,6 +102,15 @@ $c2: rgba(64, 72, 93, 0);
   }
 }
 
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@mixin spin {
+  animation: spin 1.5s ease infinite;
+}
+
 @media screen and (max-width: $mobile-max) {
   .container {
     text-align: center;
