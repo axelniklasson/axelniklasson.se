@@ -189,7 +189,7 @@ module.exports = {
               {
                 loader: "sass-resources-loader",
                 options: {
-                  resources: ["src/resources.scss"]
+                  resources: ["src/resources.scss", "src/global.scss"]
                 }
               }
             ],
