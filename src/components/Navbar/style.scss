@@ -3,16 +3,17 @@
   padding: 15px 0;
   box-shadow: 0 3px 4px -2px black;
   position: fixed;
-  z-index: 3;
   width: 100%;
 
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
   opacity: 0;
+  z-index: -1;
 
   &.fadeIn {
     animation: fadeIn 0.25s;
     opacity: 1;
+    z-index: 3;
   }
 
   &.fadeOut {
