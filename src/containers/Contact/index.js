@@ -59,8 +59,7 @@ class Contact extends Component {
             email: '',
             message: ''
           }
-        });
-        this.showSuccessMessage();
+        }, () => this.showSuccessMessage());
       }, 3000);
     });
   }

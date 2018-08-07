@@ -46,7 +46,7 @@ class About extends Component {
     if (isLoading) return <div className="about container"><Spinner /></div>;
 
     return (
-      <div className="about container" id="about">
+      <div className="about container" id={this.props.id ? this.props.id : 'about'}>
         <div className="content">
           <h2>{heading}</h2>
           <Content markdown={content} />

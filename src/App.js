@@ -11,8 +11,6 @@ import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Divider from "./components/Divider";
 
-import "./App.scss";
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -63,9 +61,13 @@ class App extends Component {
         <Navbar showNavbar={showNavbar} />
         <Header ref={this.header} />
 
-        <About client={client} />
+        <About 
+          id="about"
+          client={client} 
+        />
 
         <Divider
+          id="portfolio"
           bgColor='rgba(48,116,60,0.83)'
           title="<Portfolio />"
           subtitle="Selected personal projects"
@@ -74,6 +76,7 @@ class App extends Component {
         <Portfolio client={client} />
 
         <Divider
+          id="experience"
           bgColor='rgba(179,129,19,0.83)'
           title="<Experience />"
           subtitle="Things I have done so far"
@@ -83,7 +86,10 @@ class App extends Component {
 
         <Social />
 
-        <Contact client={client} />
+        <Contact 
+          id="contact"
+          client={client} 
+        />
       </div>
     );
   }

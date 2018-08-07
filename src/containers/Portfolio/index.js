@@ -33,7 +33,7 @@ class Portfolio extends Component {
     if (isLoading) return <Spinner />;
 
     return (
-      <div className="portfolio container" id="portfolio">
+      <div className="portfolio container">
         {portfolio.map((el,index) => 
           <PortfolioItem 
             key={index}

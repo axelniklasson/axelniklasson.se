@@ -11,6 +11,8 @@ class Navbar extends Component {
       title: 'Axel Niklasson',
       dropdownVisible: false
     };
+
+    this.ref = React.createRef();
   }
 
   componentWillReceiveProps(newProps) {
@@ -27,7 +29,9 @@ class Navbar extends Component {
 
   jump = id => {
     this.setState({ dropdownVisible: false });
-    document.getElementById(id).scrollIntoView();
+    const el = document.getElementById(id);
+    el.scrollIntoView();
+    window.scrollBy(0, -this.ref.current.clientHeight)
   }
 
 
@@ -36,7 +40,7 @@ class Navbar extends Component {
     const NavLink = ({id, text}) => <li><a onClick={() => this.jump(id)}>{text}</a></li>
 
     return (
-      <div className={this.className}>
+      <div className={this.className} ref={this.ref}>
         <div>
           <div>
             <img onClick={() => this.jump('header')} src={headerImage} alt="header" />

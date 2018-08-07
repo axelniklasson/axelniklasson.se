@@ -48,7 +48,7 @@ class Experience extends Component {
     if (isLoading) return <Spinner />;
 
     return (
-      <div className="experience container" id="experience">
+      <div className="experience container">
         <div className="content">
           <h2>{heading}</h2>
           <Content markdown={content} />
