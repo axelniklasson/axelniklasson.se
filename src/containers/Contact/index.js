@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Spinner from "../../components/Spinner";
 import Content from "../../components/Content";
 import { Button } from "./Button";
+import axios from "axios";
 
 import "./style.scss";
 
@@ -17,10 +18,12 @@ class Contact extends Component {
         email: '',
         message: ''
       },
-      sendingMessage: false
+      sendingMessage: false,
+      showSuccessMessage: false,
+      showErrorMessage: false
     };
   }
-  
+
   componentDidMount() {
     this.setState({ isLoading: true });
 
@@ -51,27 +54,41 @@ class Contact extends Component {
   onSubmit = e => {
     e.preventDefault();
 
-    this.setState({ sendingMessage: true}, () => {
-      setTimeout(() => {
-        this.setState({ 
-          sendingMessage: false,
-          form: {
-            email: '',
-            message: ''
-          }
-        }, () => this.showSuccessMessage());
-      }, 3000);
+    this.setState({ sendingMessage: true }, () => {
+      const payload = {
+        from: this.state.form.email,
+        to: 'hello@axelniklasson.se',
+        subject: '[axelniklasson.se] New message',
+        text: this.state.form.message
+      };
+
+      axios.post('https://mailman.axelniklasson.se/send', payload, {
+        headers: { 'Token': process.env.REACT_APP_MAILMAN_TOKEN }
+      })
+      .then(res => this.showStatusMessage(true))
+      .catch(res => this.showStatusMessage(false))
     });
   }
 
-  showSuccessMessage = () => {
-    this.setState({ showSuccessMessage: true}, () => {
-      setTimeout(() => this.setState({ showSuccessMessage: false}), 3000);
+  showStatusMessage = success => {
+    this.setState({
+      showSuccessMessage: success,
+      showErrorMessage: !success,
+      sendingMessage: false,
+      form: {
+        email: '',
+        message: ''
+      }
+    }, () => {
+      setTimeout(() => this.setState({
+        showSuccessMessage: false,
+        showErrorMessage: false
+      }), 3000);
     });
   }
-  
+
   render() {
-    const { heading, content, isLoading, form, showSuccessMessage, sendingMessage } = this.state;
+    const { heading, content, isLoading, form, showSuccessMessage, showErrorMessage, sendingMessage } = this.state;
 
     if (isLoading) return <Spinner />;
 
@@ -81,15 +98,15 @@ class Contact extends Component {
         <Content markdown={content} />
 
         <form onSubmit={this.onSubmit}>
-          <input 
+          <input
             onChange={this.onChange}
             type="email"
             name="email"
             placeholder="john@doe.com"
-            value={form.email} 
+            value={form.email}
             required
           />
-          <textarea 
+          <textarea
             onChange={this.onChange}
             name="message"
             placeholder="Hi Axel, sweet website!"
@@ -105,7 +122,8 @@ class Contact extends Component {
             text="Send message"
           />
 
-          {showSuccessMessage && <p>Message not sent! need to build the backend for this. Damn it.</p>}
+          {showSuccessMessage && <p>Message sent! I'll get back to you as soon as possible.</p>}
+          {showErrorMessage && <p>Something went wrong. Please email me at hello@axelniklasson.se instead!</p>}
         </form>
       </div>
     );
