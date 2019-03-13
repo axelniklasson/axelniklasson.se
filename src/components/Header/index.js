@@ -11,7 +11,7 @@ class Header extends Component {
       head2: 'Axel Niklasson',
       sub1: 'M.Sc. Student',
       sub2: 'Full-stack developer',
-      profilePicture: 'https://inneva.se/wp-content/uploads/2018/03/axel_profile_resized.jpg'
+      profilePicture: 'https://bit.ly/2Cfom2I'
     };
   }
 

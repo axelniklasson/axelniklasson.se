@@ -7,7 +7,7 @@ class Navbar extends Component {
     super(props);
 
     this.state = {
-      headerImage: 'https://inneva.se/wp-content/uploads/2018/03/axel_profile_resized.jpg',
+      headerImage: 'https://bit.ly/2Cfom2I',
       title: 'Axel Niklasson',
       dropdownVisible: false
     };
