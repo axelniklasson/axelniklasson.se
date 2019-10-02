@@ -15,6 +15,20 @@ class Header extends Component {
     };
   }
 
+  componentDidMount() {
+    this.setState({ isLoading: true });
+
+    this.props.client.getEntries({
+      content_type: 'headerSection',
+      limit: 1
+    }).then(data => {
+      const { head1, head2, sub1, sub2 } = data.items[0].fields
+      const profilePicture = data.items[0].fields.profilePicture.fields.file.url
+
+      this.setState({ head1, head2, sub1, sub2, profilePicture })
+    })
+  }
+
   render() {
     const { head1, head2, sub1, sub2, profilePicture } = this.state;
 

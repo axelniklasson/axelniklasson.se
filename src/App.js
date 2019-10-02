@@ -5,7 +5,6 @@ import About from "./containers/About";
 import Portfolio from "./containers/Portfolio";
 import Social from "./containers/Social";
 import Experience from "./containers/Experience";
-import Contact from "./containers/Contact";
 
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
@@ -59,7 +58,10 @@ class App extends Component {
     return (
       <div className="app">
         <Navbar showNavbar={showNavbar} />
-        <Header ref={this.header} />
+        <Header 
+          ref={this.header}
+          client={client}
+        />
 
         <About 
           id="about"
@@ -85,11 +87,6 @@ class App extends Component {
         <Experience client={client} />
 
         <Social />
-
-        <Contact 
-          id="contact"
-          client={client} 
-        />
       </div>
     );
   }
