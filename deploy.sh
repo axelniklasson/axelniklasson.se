@@ -4,7 +4,9 @@
 git checkout master
 git pull
 git reset --hard HEAD
+yarn
 yarn build
+rm -rf ../build
 mv build ..
 git checkout gh-pages
 git pull
