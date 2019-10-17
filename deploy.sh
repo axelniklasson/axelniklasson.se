@@ -12,6 +12,7 @@ git checkout gh-pages
 git pull
 rm -rf *
 mv ../build/* .
+echo "axelniklasson.se" >> CNAME
 git add .
 git commit -m "Deployment $(date)"
 git push
