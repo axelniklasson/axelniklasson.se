@@ -11,7 +11,7 @@ mv build ..
 git checkout gh-pages
 git pull
 rm -rf *
-mv build/** .
+mv ../build/* .
 git add .
 git commit -m "Deployment $(date)"
 git push
