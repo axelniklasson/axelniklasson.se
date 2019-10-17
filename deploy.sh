@@ -8,8 +8,6 @@ yarn build
 mv build ..
 git checkout gh-pages
 git pull
-git merge master
-yarn build
 rm -rf *
 mv build/** .
 git add .
