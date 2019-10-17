@@ -4,11 +4,12 @@
 git checkout master
 git pull
 git reset --hard HEAD
+yarn build
+mv build ..
 git checkout gh-pages
 git pull
 git merge master
 yarn build
-mv build ..
 rm -rf *
 mv build/** .
 git add .
