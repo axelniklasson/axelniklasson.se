@@ -15,6 +15,16 @@ class Navbar extends Component {
     this.ref = React.createRef();
   }
 
+  componentDidMount() {
+    this.props.client.getEntries({
+      content_type: 'headerSection',
+      limit: 1
+    }).then(data => {
+      const profilePicture = data.items[0].fields.profilePicture.fields.file.url
+      this.setState({ headerImage: profilePicture })
+    })
+  }
+
   componentWillReceiveProps(newProps) {
     if (this.props.showNavbar && !newProps.showNavbar) {
       this.className = 'navbar fadeOut';

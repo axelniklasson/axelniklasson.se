@@ -58,15 +58,15 @@ class App extends Component {
 
     return (
       <div className="app">
-        <Navbar showNavbar={showNavbar} />
-        <Header 
+        <Navbar showNavbar={showNavbar} client={client}/>
+        <Header
           ref={this.header}
           client={client}
         />
 
-        <About 
+        <About
           id="about"
-          client={client} 
+          client={client}
         />
 
         <Divider
@@ -74,7 +74,7 @@ class App extends Component {
           bgColor='rgba(48,116,60,0.83)'
           title="<Portfolio />"
           subtitle="Selected personal projects"
-        /> 
+        />
 
         <Portfolio client={client} />
 
@@ -83,7 +83,7 @@ class App extends Component {
           bgColor='rgba(179,129,19,0.83)'
           title="<Experience />"
           subtitle="Things I have done so far"
-        /> 
+        />
 
         <Experience client={client} />
 

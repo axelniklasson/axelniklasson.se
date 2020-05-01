@@ -1,5 +1,5 @@
 # this script publishes the current state of the master branch to github pages
-# only run whenver there are no changes in the repo.
+# only run when there are no changes in the repo.
 
 git checkout master
 git pull
