@@ -7,6 +7,7 @@ class Header extends Component {
     super(props);
 
     this.state = {
+      isLoading: true,
       head1: 'Hey, I\'m',
       head2: 'Axel Niklasson',
       sub1: 'M.Sc. Student',
@@ -25,12 +26,15 @@ class Header extends Component {
       const { head1, head2, sub1, sub2 } = data.items[0].fields
       const profilePicture = data.items[0].fields.profilePicture.fields.file.url
 
-      this.setState({ head1, head2, sub1, sub2, profilePicture })
+      this.setState({ isLoading: false, head1, head2, sub1, sub2, profilePicture })
     })
   }
 
   render() {
-    const { head1, head2, sub1, sub2, profilePicture } = this.state;
+    const { isLoading, head1, head2, sub1, sub2, profilePicture } = this.state;
+    if (isLoading) {
+      return null;
+    }
 
     return (
       <div className="header" id="header">

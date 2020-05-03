@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.headerHeight = document.getElementsByClassName('header')[0].clientHeight;
+    this.headerHeight = (document.getElementsByClassName('header')[0] || {}).clientHeight;
     this.updateNav();
     window.addEventListener('scroll', this.throttle(this.updateNav, 100));
   }
