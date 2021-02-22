@@ -10,38 +10,42 @@ class Experience extends Component {
     super(props);
 
     this.state = {
-      heading: '',
-      content: '',
-      experienceItems: [] 
+      heading: "",
+      content: "",
+      experienceItems: [],
     };
   }
 
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    this.props.client.getEntries({
-      content_type: 'experienceSection',
-      limit: 1
-    }).then(entries => {
-      const { heading, content } = entries.items[0].fields;
-
-      this.props.client.getEntries({
-        content_type: 'experienceItem',
-        order: '-fields.order'
-      }).then(entries => {
-        this.setState({
-          isLoading: false,
-          heading,
-          content,
-          experienceItems: entries.items.map(el => ({
-            ...el.fields,
-            employerLogo: el.fields.employerLogo.fields.file.url
-          }))
-        });
+    this.props.client
+      .getEntries({
+        content_type: "experienceSection",
+        limit: 1,
       })
-    })
+      .then((entries) => {
+        const { heading, content } = entries.items[0].fields;
+
+        this.props.client
+          .getEntries({
+            content_type: "experienceItem",
+            order: "-fields.order",
+          })
+          .then((entries) => {
+            this.setState({
+              isLoading: false,
+              heading,
+              content,
+              experienceItems: entries.items.map((el) => ({
+                ...el.fields,
+                employerLogo: el.fields.employerLogo.fields.file.url,
+              })),
+            });
+          });
+      });
   }
-  
+
   render() {
     const { isLoading, heading, content, experienceItems } = this.state;
 

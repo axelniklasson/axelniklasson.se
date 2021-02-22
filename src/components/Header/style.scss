@@ -13,8 +13,9 @@
   .content {
     margin-left: 50px;
 
-    h1, h2 {
-      color: rgba(255,255,255,0.55);
+    h1,
+    h2 {
+      color: rgba(255, 255, 255, 0.55);
       font-size: 40px;
       margin: 0;
       font-weight: normal;
@@ -36,7 +37,7 @@
 }
 
 @media screen and (max-width: $mobile-max) {
-  .header  {
+  .header {
     height: auto;
 
     .container {
@@ -54,7 +55,9 @@
         order: 2;
         margin: auto;
 
-        h1, h2, span {
+        h1,
+        h2,
+        span {
           font-size: 20px;
 
           &:first-child {

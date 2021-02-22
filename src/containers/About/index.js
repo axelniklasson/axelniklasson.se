@@ -11,42 +11,54 @@ class About extends Component {
 
     this.state = {
       isLoading: false,
-      heading: '',
-      content: '',
-      timelineItems: []
+      heading: "",
+      content: "",
+      timelineItems: [],
     };
   }
 
   componentDidMount() {
     this.setState({ isLoading: true });
 
-    this.props.client.getEntries({
-      content_type: 'aboutSection',
-      limit: 1
-    }).then(entries => {
-      const { heading, content } = entries.items[0].fields;
-
-      this.props.client.getEntries({
-        content_type: 'timelineItem',
-        order: '-fields.order'
-      }).then(entries => {
-        this.setState({
-          isLoading: false,
-          heading,
-          content,
-          timelineItems: entries.items.map(el => el.fields)
-        });
+    this.props.client
+      .getEntries({
+        content_type: "aboutSection",
+        limit: 1,
       })
-    })
+      .then((entries) => {
+        const { heading, content } = entries.items[0].fields;
+
+        this.props.client
+          .getEntries({
+            content_type: "timelineItem",
+            order: "-fields.order",
+          })
+          .then((entries) => {
+            this.setState({
+              isLoading: false,
+              heading,
+              content,
+              timelineItems: entries.items.map((el) => el.fields),
+            });
+          });
+      });
   }
-  
+
   render() {
     const { isLoading, heading, content, timelineItems } = this.state;
 
-    if (isLoading) return <div className="about container"><Spinner /></div>;
+    if (isLoading)
+      return (
+        <div className="about container">
+          <Spinner />
+        </div>
+      );
 
     return (
-      <div className="about container" id={this.props.id ? this.props.id : 'about'}>
+      <div
+        className="about container"
+        id={this.props.id ? this.props.id : "about"}
+      >
         <div className="content">
           <h2>{heading}</h2>
           <Content markdown={content} />

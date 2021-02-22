@@ -8,9 +8,10 @@ const Timeline = ({ items }) => (
     {items.map((el, index) => (
       <div key={index} className="experience-timeline-item">
         <div>
-          <img 
-            src={el.employerLogo} alt={el.title}
-            onClick={() => window.open(el.employerLink, '_blank')}
+          <img
+            src={el.employerLogo}
+            alt={el.title}
+            onClick={() => window.open(el.employerLink, "_blank")}
           />
           <div className="experience-timeline-item-content">
             <p>{el.title}</p>
