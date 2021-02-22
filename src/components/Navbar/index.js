@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 import "./style.scss";
 
@@ -7,64 +7,77 @@ class Navbar extends Component {
     super(props);
 
     this.state = {
-      headerImage: 'https://bit.ly/2Cfom2I',
-      title: 'Axel Niklasson',
-      dropdownVisible: false
+      headerImage: "https://bit.ly/2Cfom2I",
+      title: "Axel Niklasson",
+      dropdownVisible: false,
     };
 
     this.ref = React.createRef();
   }
 
   componentDidMount() {
-    this.props.client.getEntries({
-      content_type: 'headerSection',
-      limit: 1
-    }).then(data => {
-      const profilePicture = data.items[0].fields.profilePicture.fields.file.url
-      this.setState({ headerImage: profilePicture })
-    })
+    this.props.client
+      .getEntries({
+        content_type: "headerSection",
+        limit: 1,
+      })
+      .then((data) => {
+        const profilePicture =
+          data.items[0].fields.profilePicture.fields.file.url;
+        this.setState({ headerImage: profilePicture });
+      });
   }
 
   componentWillReceiveProps(newProps) {
     if (this.props.showNavbar && !newProps.showNavbar) {
-      this.className = 'navbar fadeOut';
+      this.className = "navbar fadeOut";
     } else if (newProps.showNavbar) {
-      this.className = 'navbar fadeIn';
+      this.className = "navbar fadeIn";
     } else {
-      this.className = 'navbar';
+      this.className = "navbar";
     }
   }
 
-  toggleDropdown = () => this.setState(prevState => ({ dropdownVisible: !prevState.dropdownVisible }))
+  toggleDropdown = () =>
+    this.setState((prevState) => ({
+      dropdownVisible: !prevState.dropdownVisible,
+    }));
 
-  jump = id => {
+  jump = (id) => {
     this.setState({ dropdownVisible: false });
     const el = document.getElementById(id);
     el.scrollIntoView();
-    window.scrollBy(0, -this.ref.current.clientHeight)
-  }
-
+    window.scrollBy(0, -this.ref.current.clientHeight);
+  };
 
   render() {
     const { headerImage, title, dropdownVisible } = this.state;
-    const NavLink = ({id, text}) => <li><a onClick={() => this.jump(id)}>{text}</a></li>
+    const NavLink = ({ id, text }) => (
+      <li>
+        <a onClick={() => this.jump(id)}>{text}</a>
+      </li>
+    );
 
     return (
       <div className={this.className} ref={this.ref}>
         <div>
           <div>
-            <img onClick={() => this.jump('header')} src={headerImage} alt="header" />
+            <img
+              onClick={() => this.jump("header")}
+              src={headerImage}
+              alt="header"
+            />
             <span className="hide-mobile">{title}</span>
           </div>
           <div>
-            <ul className={dropdownVisible ? 'expanded' : ''}>
+            <ul className={dropdownVisible ? "expanded" : ""}>
               <NavLink id="about" text="About" />
               <NavLink id="portfolio" text="Portfolio" />
               <NavLink id="experience" text="Experience" />
             </ul>
 
             <div
-              className={dropdownVisible ? 'menuIcon toggled' : 'menuIcon'}
+              className={dropdownVisible ? "menuIcon toggled" : "menuIcon"}
               onClick={this.toggleDropdown}
             >
               <div />

@@ -96,31 +96,31 @@
         margin-right: 40px;
 
         div {
-            background: $blue;
-            opacity: 1;
-            height: 3px;
-            width: 100%;
-            transition: 0.3s;
+          background: $blue;
+          opacity: 1;
+          height: 3px;
+          width: 100%;
+          transition: 0.3s;
         }
 
         &.toggled {
-            div {
-                width: 100%;
-            }
+          div {
+            width: 100%;
+          }
 
-            div:first-child {
-                transform: rotate(-45deg) translate(-5px, 10px);
-            }
+          div:first-child {
+            transform: rotate(-45deg) translate(-5px, 10px);
+          }
 
-            div:nth-child(2) {
-                opacity: 0;
-            } 
+          div:nth-child(2) {
+            opacity: 0;
+          }
 
-            div:last-child {
-                transform: rotate(45deg) translate(-5px, -10px);
-            }
+          div:last-child {
+            transform: rotate(45deg) translate(-5px, -10px);
+          }
         }
-    }
+      }
 
       ul {
         position: fixed;

@@ -34,8 +34,13 @@
   }
 
   &.left {
-    .content { order: 1; text-align: left; }
-    .cta { order: 2; }
+    .content {
+      order: 1;
+      text-align: left;
+    }
+    .cta {
+      order: 2;
+    }
   }
 }
 

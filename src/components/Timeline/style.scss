@@ -19,7 +19,7 @@
   }
 
   &:after {
-    content: '';
+    content: "";
     position: absolute;
     width: 6px;
     background-color: $blue;
@@ -47,30 +47,30 @@
     }
 
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       width: 25px;
       height: 25px;
       background-color: $blue;
       left: 50%;
       border-radius: 50%;
-      z-index: 1;	
+      z-index: 1;
       margin-left: -12.5px;
-      
+
       // TODO fix choppy animation in Safari
       // animation: pulse 2s infinite;
     }
 
     & > div {
-      flex-basis: 50%;	
+      flex-basis: 50%;
       position: relative;
     }
 
-    &:nth-child(odd){
+    &:nth-child(odd) {
       justify-content: flex-start;
 
       & > div {
-        text-align: right;	
+        text-align: right;
         p {
           margin-left: 0;
           margin-right: 25px;
@@ -80,14 +80,18 @@
 
     &:nth-child(even) > div {
       padding-left: 40px;
-      text-align: left;	
+      text-align: left;
       justify-content: flex-end;
     }
   }
 
   .gradient {
-    height: 20px;	
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1));
+    height: 20px;
+    background: linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0),
+      rgba(255, 255, 255, 1)
+    );
     position: absolute;
     bottom: 0;
     left: 0;

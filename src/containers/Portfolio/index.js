@@ -10,23 +10,25 @@ class Portfolio extends Component {
 
     this.state = {
       isLoading: false,
-      portfolio: []
+      portfolio: [],
     };
   }
 
   componentDidMount() {
     this.setState({ isLoading: true });
-    this.props.client.getEntries({
-      content_type: 'portfolioItem',
-      order: 'fields.order'
-    }).then(entries => {
-      this.setState({
-        isLoading: false, 
-        portfolio: entries.items.map(el => el.fields)
+    this.props.client
+      .getEntries({
+        content_type: "portfolioItem",
+        order: "fields.order",
+      })
+      .then((entries) => {
+        this.setState({
+          isLoading: false,
+          portfolio: entries.items.map((el) => el.fields),
+        });
       });
-    })
   }
-  
+
   render() {
     const { isLoading, portfolio } = this.state;
 
@@ -34,13 +36,9 @@ class Portfolio extends Component {
 
     return (
       <div className="portfolio container">
-        {portfolio.map((el,index) => 
-          <PortfolioItem 
-            key={index}
-            {...el}
-            alignLeft={index % 2 === 0}
-          />
-        )}
+        {portfolio.map((el, index) => (
+          <PortfolioItem key={index} {...el} alignLeft={index % 2 === 0} />
+        ))}
       </div>
     );
   }

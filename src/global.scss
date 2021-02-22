@@ -1,4 +1,4 @@
-$blue: #40485D;
+$blue: #40485d;
 $mobile-max: 850px;
 
 body {
@@ -7,12 +7,13 @@ body {
 }
 
 * {
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: "Source Sans Pro", sans-serif;
   font-weight: normal;
   color: $blue;
 }
 
-p, span {
+p,
+span {
   font-weight: lighter;
 }
 
@@ -30,9 +31,9 @@ strong {
     font-size: 40px;
     margin-top: 0;
   }
-  
+
   p {
-    font-size: 20px; 
+    font-size: 20px;
   }
 }
 
@@ -103,8 +104,12 @@ $c2: rgba(64, 72, 93, 0);
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 @mixin spin {
