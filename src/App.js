@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { createClient } from "contentful";
+import React from "react";
+import { ThemeContext, themes } from "./theme/theme-context";
 
 import About from "./containers/About";
 import Portfolio from "./containers/Portfolio";
@@ -10,85 +10,45 @@ import Footer from "./containers/Footer";
 import Navbar from "./components/Navbar";
 import Header from "./components/Header";
 import Divider from "./components/Divider";
+import useContentfulClient from "./hooks/useContentfulClient";
 
-class App extends Component {
-  constructor(props) {
-    super(props);
+export default function App() {
+  const [showNavbar, setShowNavbar] = React.useState(true);
+  const [theme, setTheme] = React.useState(themes.light);
+  const client = useContentfulClient();
 
-    this.state = {
-      showNavbar: false,
-      client: createClient({
-        space: process.env.REACT_APP_CONTENTFUL_SPACE,
-        accessToken: process.env.REACT_APP_CONTENTFUL_ACCESSTOKEN,
-      }),
-    };
-
-    this.header = React.createRef();
+  function toggleTheme() {
+    setTheme(theme === themes.light ? themes.dark : themes.light);
   }
 
-  throttle = (fn, wait) => {
-    let time = Date.now();
-    return function () {
-      if (time + wait - Date.now() < 0) {
-        fn();
-        time = Date.now();
-      }
-    };
-  };
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      <Navbar showNavbar={showNavbar} client={client} />
+      <Header client={client} />
 
-  updateNav = () => {
-    const offset = window.pageYOffset;
-    this.setState({
-      showNavbar: offset >= this.headerHeight,
-    });
-  };
+      <About id="about" client={client} />
 
-  componentDidMount() {
-    this.headerHeight = (
-      document.getElementsByClassName("header")[0] || {}
-    ).clientHeight;
-    this.updateNav();
-    window.addEventListener("scroll", this.throttle(this.updateNav, 100));
-  }
+      <Divider
+        id="portfolio"
+        bgColor="rgba(48,116,60,0.83)"
+        title="<Portfolio />"
+        subtitle="Selected personal projects"
+      />
 
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.handleScroll);
-  }
+      <Portfolio client={client} />
 
-  render() {
-    const { showNavbar, client } = this.state;
+      <Divider
+        id="experience"
+        bgColor="rgba(179,129,19,0.83)"
+        title="<Experience />"
+        subtitle="Things I have done so far"
+      />
 
-    return (
-      <div className="app">
-        <Navbar showNavbar={showNavbar} client={client} />
-        <Header ref={this.header} client={client} />
+      <Experience client={client} />
 
-        <About id="about" client={client} />
+      <Social />
 
-        <Divider
-          id="portfolio"
-          bgColor="rgba(48,116,60,0.83)"
-          title="<Portfolio />"
-          subtitle="Selected personal projects"
-        />
-
-        <Portfolio client={client} />
-
-        <Divider
-          id="experience"
-          bgColor="rgba(179,129,19,0.83)"
-          title="<Experience />"
-          subtitle="Things I have done so far"
-        />
-
-        <Experience client={client} />
-
-        <Social />
-
-        <Footer />
-      </div>
-    );
-  }
+      <Footer />
+    </ThemeContext.Provider>
+  );
 }
-
-export default App;
