@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
-import "./style.scss";
+import './style.scss';
 
-const Timeline = ({ items }) => (
+const ExperienceTimeline = ({ items }) => (
   <div className="experience-timeline">
     <div className="arrow" />
     {items.map((el, index) => (
@@ -11,7 +11,7 @@ const Timeline = ({ items }) => (
           <img
             src={el.employerLogo}
             alt={el.title}
-            onClick={() => window.open(el.employerLink, "_blank")}
+            onClick={() => window.open(el.employerLink, '_blank')}
           />
           <div className="experience-timeline-item-content">
             <p>{el.title}</p>
@@ -25,4 +25,4 @@ const Timeline = ({ items }) => (
   </div>
 );
 
-export default Timeline;
+export default ExperienceTimeline;

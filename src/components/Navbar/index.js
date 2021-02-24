@@ -1,94 +1,74 @@
-import React, { Component } from "react";
+import React from "react";
+import useContentfulClient from "../../hooks/useContentfulClient";
 
 import "./style.scss";
 
-class Navbar extends Component {
-  constructor(props) {
-    super(props);
+const TITLE = "Axel Niklasson";
 
-    this.state = {
-      headerImage: "https://bit.ly/2Cfom2I",
-      title: "Axel Niklasson",
-      dropdownVisible: false,
-    };
+const Navbar = ({ showNavbar }) => {
+  const [profilePicture, setProfilePicture] = React.useState("");
+  const [showDropdown, setShowDropdown] = React.useState(false);
+  const [className, setClassName] = React.useState("navbar");
+  const ref = React.createRef(null);
+  const client = useContentfulClient();
 
-    this.ref = React.createRef();
+  React.useEffect(async () => {
+    const profilePicture = await client.getProfilePicture();
+    setProfilePicture(profilePicture);
+  }, []);
+
+  function toggleDropdown() {
+    setShowDropdown(!showDropdown);
   }
 
-  componentDidMount() {
-    this.props.client
-      .getEntries({
-        content_type: "headerSection",
-        limit: 1,
-      })
-      .then((data) => {
-        const profilePicture =
-          data.items[0].fields.profilePicture.fields.file.url;
-        this.setState({ headerImage: profilePicture });
-      });
-  }
-
-  componentWillReceiveProps(newProps) {
-    if (this.props.showNavbar && !newProps.showNavbar) {
-      this.className = "navbar fadeOut";
-    } else if (newProps.showNavbar) {
-      this.className = "navbar fadeIn";
-    } else {
-      this.className = "navbar";
-    }
-  }
-
-  toggleDropdown = () =>
-    this.setState((prevState) => ({
-      dropdownVisible: !prevState.dropdownVisible,
-    }));
-
-  jump = (id) => {
-    this.setState({ dropdownVisible: false });
+  function jump(id) {
+    setShowDropdown(true);
     const el = document.getElementById(id);
     el.scrollIntoView();
-    window.scrollBy(0, -this.ref.current.clientHeight);
-  };
+    window.scrollBy(0, -ref.current.clientHeight);
+  }
 
-  render() {
-    const { headerImage, title, dropdownVisible } = this.state;
-    const NavLink = ({ id, text }) => (
-      <li>
-        <a onClick={() => this.jump(id)}>{text}</a>
-      </li>
-    );
+  React.useEffect(() => {
+    const className = showNavbar ? "fadeIn" : "fadeOut";
+    setClassName(`navbar ${className}`);
+  }, [showNavbar]);
 
-    return (
-      <div className={this.className} ref={this.ref}>
+  const NavLink = ({ id, text }) => (
+    <li>
+      <a onClick={() => jump(id)}>{text}</a>
+    </li>
+  );
+
+  return (
+    <div className={className} ref={ref}>
+      <div>
         <div>
-          <div>
-            <img
-              onClick={() => this.jump("header")}
-              src={headerImage}
-              alt="header"
-            />
-            <span className="hide-mobile">{title}</span>
-          </div>
-          <div>
-            <ul className={dropdownVisible ? "expanded" : ""}>
-              <NavLink id="about" text="About" />
-              <NavLink id="portfolio" text="Portfolio" />
-              <NavLink id="experience" text="Experience" />
-            </ul>
+          <img
+            onClick={() => jump("header")}
+            src={profilePicture}
+            alt="header"
+          />
+          <span className="hide-mobile">{TITLE}</span>
+        </div>
+        <div>
+          <ul className={showDropdown ? "expanded" : ""}>
+            <NavLink id="about" text="About" />
+            <NavLink id="portfolio" text="Portfolio" />
+            <NavLink id="experience" text="Experience" />
+          </ul>
 
-            <div
-              className={dropdownVisible ? "menuIcon toggled" : "menuIcon"}
-              onClick={this.toggleDropdown}
-            >
-              <div />
-              <div />
-              <div />
-            </div>
+          <div
+            className={showDropdown ? "menuIcon toggled" : "menuIcon"}
+            onClick={toggleDropdown}
+          >
+            <div />
+            <div />
+            <div />
           </div>
         </div>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
 
 export default Navbar;
