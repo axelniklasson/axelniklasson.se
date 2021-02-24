@@ -1,32 +1,50 @@
 import React from "react";
-import { ThemeContext, themes } from "./theme/theme-context";
 
+import Divider from "./components/Divider";
+import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 import About from "./containers/About";
-import Portfolio from "./containers/Portfolio";
-import Social from "./containers/Social";
 import Experience from "./containers/Experience";
 import Footer from "./containers/Footer";
+import Portfolio from "./containers/Portfolio";
+import Social from "./containers/Social";
+import { ThemeContext, themes } from "./theme/theme-context";
+import throttle from "lodash.throttle";
 
-import Navbar from "./components/Navbar";
-import Header from "./components/Header";
-import Divider from "./components/Divider";
-import useContentfulClient from "./hooks/useContentfulClient";
-
-export default function App() {
-  const [showNavbar, setShowNavbar] = React.useState(true);
+const App = () => {
+  const [showNavbar, setShowNavbar] = React.useState(false);
   const [theme, setTheme] = React.useState(themes.light);
-  const client = useContentfulClient();
+  // const [headerHeight, setHeaderHeight] = React.useState(0);
+  const headerRef = React.useRef(null);
 
   function toggleTheme() {
     setTheme(theme === themes.light ? themes.dark : themes.light);
   }
 
+  function updateNav() {
+    headerRef.current &&
+      setShowNavbar(window.pageYOffset >= headerRef.current.clientHeight);
+  }
+
+  function onScroll() {
+    throttle(updateNav, 300);
+  }
+
+  React.useEffect(() => {
+    updateNav();
+    window.addEventListener("scroll", throttle(updateNav, 100));
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+    };
+  }, []);
+
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-      <Navbar showNavbar={showNavbar} client={client} />
-      <Header client={client} />
+      <Navbar showNavbar={showNavbar} />
+      <Header ref={headerRef} />
 
-      <About id="about" client={client} />
+      <About />
 
       <Divider
         id="portfolio"
@@ -35,7 +53,7 @@ export default function App() {
         subtitle="Selected personal projects"
       />
 
-      <Portfolio client={client} />
+      <Portfolio />
 
       <Divider
         id="experience"
@@ -44,11 +62,13 @@ export default function App() {
         subtitle="Things I have done so far"
       />
 
-      <Experience client={client} />
+      <Experience />
 
       <Social />
 
       <Footer />
     </ThemeContext.Provider>
   );
-}
+};
+
+export default App;

@@ -1,47 +1,36 @@
-import React, { Component } from "react";
-import Spinner from "../../components/Spinner";
-import PortfolioItem from "../../components/PortfolioItem";
+import React from 'react';
 
-import "./style.scss";
+import PortfolioItem from '../../components/PortfolioItem';
+import Spinner from '../../components/Spinner';
+import useContentfulClient from '../../hooks/useContentfulClient';
+import './style.scss';
 
-class Portfolio extends Component {
-  constructor(props) {
-    super(props);
+const Portfolio = () => {
+  const [loading, setLoading] = React.useState(true);
+  const [portfolio, setPortfolio] = React.useState([]);
+  const client = useContentfulClient();
 
-    this.state = {
-      isLoading: false,
-      portfolio: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-    this.props.client
+  React.useEffect(() => {
+    client
       .getEntries({
-        content_type: "portfolioItem",
-        order: "fields.order",
+        content_type: 'portfolioItem',
+        order: 'fields.order',
       })
       .then((entries) => {
-        this.setState({
-          isLoading: false,
-          portfolio: entries.items.map((el) => el.fields),
-        });
+        setLoading(false);
+        setPortfolio(entries.items.map((el) => el.fields));
       });
-  }
+  }, []);
 
-  render() {
-    const { isLoading, portfolio } = this.state;
+  if (loading) return <Spinner />;
 
-    if (isLoading) return <Spinner />;
-
-    return (
-      <div className="portfolio container">
-        {portfolio.map((el, index) => (
-          <PortfolioItem key={index} {...el} alignLeft={index % 2 === 0} />
-        ))}
-      </div>
-    );
-  }
-}
+  return (
+    <div className="portfolio container">
+      {portfolio.map((el, index) => (
+        <PortfolioItem key={index} {...el} alignLeft={index % 2 === 0} />
+      ))}
+    </div>
+  );
+};
 
 export default Portfolio;

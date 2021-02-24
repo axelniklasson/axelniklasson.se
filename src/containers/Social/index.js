@@ -1,8 +1,7 @@
 import React from "react";
 
-import LinkedIn from "../../images/linkedin.svg";
 import GitHub from "../../images/github.svg";
-
+import LinkedIn from "../../images/linkedin.svg";
 import "./style.scss";
 
 const LINKEDIN_URL = "https://linkedin.com/in/axelniklasson";
@@ -15,14 +14,12 @@ const SocialItem = ({ icon, text, link }) => (
   </div>
 );
 
-const Social = () => {
-  return (
-    <div className="social">
-      <h2>Find me on the Internet</h2>
-      <SocialItem icon={LinkedIn} text="LinkedIn" link={LINKEDIN_URL} />
-      <SocialItem icon={GitHub} text="GitHub" link={GITHUB_URL} />
-    </div>
-  );
-};
+const Social = () => (
+  <div className="social">
+    <h2>Find me on the Internet</h2>
+    <SocialItem icon={LinkedIn} text="LinkedIn" link={LINKEDIN_URL} />
+    <SocialItem icon={GitHub} text="GitHub" link={GITHUB_URL} />
+  </div>
+);
 
 export default Social;

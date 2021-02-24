@@ -1,40 +1,37 @@
-import React, { Component } from "react";
-import Content from "../../components/Content";
-import Spinner from "../../components/Spinner";
-import ExperienceTimeline from "../../components/ExperienceTimeline";
+import React from 'react';
 
-import "./style.scss";
+import Content from '../../components/Content';
+import ExperienceTimeline from '../../components/ExperienceTimeline';
+import Spinner from '../../components/Spinner';
+import useContentfulClient from '../../hooks/useContentfulClient';
+import './style.scss';
 
-class Experience extends Component {
-  constructor(props) {
-    super(props);
+const Experience = () => {
+  const [loading, setLoading] = React.useState(true);
+  const [data, setData] = React.useState({
+    heading: '',
+    content: '',
+    experienceItems: [],
+  });
+  const client = useContentfulClient();
 
-    this.state = {
-      heading: "",
-      content: "",
-      experienceItems: [],
-    };
-  }
-
-  componentDidMount() {
-    this.setState({ isLoading: true });
-
-    this.props.client
+  React.useEffect(() => {
+    client
       .getEntries({
-        content_type: "experienceSection",
+        content_type: 'experienceSection',
         limit: 1,
       })
       .then((entries) => {
         const { heading, content } = entries.items[0].fields;
 
-        this.props.client
+        client
           .getEntries({
-            content_type: "experienceItem",
-            order: "-fields.order",
+            content_type: 'experienceItem',
+            order: '-fields.order',
           })
           .then((entries) => {
-            this.setState({
-              isLoading: false,
+            setLoading(false);
+            setData({
               heading,
               content,
               experienceItems: entries.items.map((el) => ({
@@ -44,24 +41,21 @@ class Experience extends Component {
             });
           });
       });
-  }
+  }, []);
 
-  render() {
-    const { isLoading, heading, content, experienceItems } = this.state;
+  if (loading) return <Spinner />;
 
-    if (isLoading) return <Spinner />;
-
-    return (
-      <div className="experience container">
-        <div className="content">
-          <h2>{heading}</h2>
-          <Content markdown={content} />
-        </div>
-
-        <ExperienceTimeline items={experienceItems} />
+  const { heading, content, experienceItems } = data;
+  return (
+    <div className="experience container">
+      <div className="content">
+        <h2>{heading}</h2>
+        <Content markdown={content} />
       </div>
-    );
-  }
-}
+
+      <ExperienceTimeline items={experienceItems} />
+    </div>
+  );
+};
 
 export default Experience;

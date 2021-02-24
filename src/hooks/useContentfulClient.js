@@ -1,4 +1,4 @@
-import { createClient } from "contentful";
+import { createClient } from 'contentful';
 
 export default function useContentfulClient() {
   return createClient({
