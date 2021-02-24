@@ -16,5 +16,5 @@ rm -rf ../build
 echo "axelniklasson.se" >> CNAME
 git add .
 git commit -m "Deployment $(date)"
-git push
+git push --no-verify
 git checkout master
