@@ -6,23 +6,15 @@ import "./style.scss";
 const TITLE = "Axel Niklasson";
 
 const Navbar = ({ showNavbar }) => {
-  const [headerImage, setHeaderImage] = React.useState("");
+  const [profilePicture, setProfilePicture] = React.useState("");
   const [showDropdown, setShowDropdown] = React.useState(false);
   const [className, setClassName] = React.useState("navbar");
   const ref = React.createRef(null);
   const client = useContentfulClient();
 
-  React.useEffect(() => {
-    client
-      .getEntries({
-        content_type: "headerSection",
-        limit: 1,
-      })
-      .then((data) => {
-        const profilePicture =
-          data.items[0].fields.profilePicture.fields.file.url;
-        setHeaderImage(profilePicture);
-      });
+  React.useEffect(async () => {
+    const profilePicture = await client.getProfilePicture();
+    setProfilePicture(profilePicture);
   }, []);
 
   function toggleDropdown() {
@@ -51,7 +43,11 @@ const Navbar = ({ showNavbar }) => {
     <div className={className} ref={ref}>
       <div>
         <div>
-          <img onClick={() => jump("header")} src={headerImage} alt="header" />
+          <img
+            onClick={() => jump("header")}
+            src={profilePicture}
+            alt="header"
+          />
           <span className="hide-mobile">{TITLE}</span>
         </div>
         <div>

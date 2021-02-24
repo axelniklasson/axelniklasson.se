@@ -14,46 +14,29 @@ const Header = React.forwardRef((props, ref) => {
   });
   const client = useContentfulClient();
 
-  React.useEffect(() => {
-    client
-      .getEntries({
-        content_type: "headerSection",
-        limit: 1,
-      })
-      .then((data) => {
-        const { head1, head2, sub1, sub2 } = data.items[0].fields;
-        const profilePicture =
-          data.items[0].fields.profilePicture.fields.file.url;
-
-        setLoading(false);
-        setData({
-          head1,
-          head2,
-          sub1,
-          sub2,
-          profilePicture,
-        });
-      });
+  React.useEffect(async () => {
+    const data = await client.getHeaderSection();
+    setLoading(false);
+    setData(data);
   }, []);
 
   if (loading) {
     return null;
   }
 
-  const { profilePicture, head1, head2, sub1, sub2 } = data;
   return (
     <div className="header" id="header" ref={ref}>
       <div className="container">
-        <img src={profilePicture} alt="profile" />
+        <img src={data.profilePicture} alt="profile" />
 
         <div className="content">
           <h1>
-            {head1} <span className="bold">{head2}</span>
+            {data.head1} <span className="bold">{data.head2}</span>
           </h1>
           <h2>
-            {sub1}
+            {data.sub1}
             <br />
-            {sub2}
+            {data.sub2}
           </h2>
         </div>
       </div>

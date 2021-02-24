@@ -14,7 +14,6 @@ import throttle from "lodash.throttle";
 const App = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);
   const [theme, setTheme] = React.useState(themes.light);
-  // const [headerHeight, setHeaderHeight] = React.useState(0);
   const headerRef = React.useRef(null);
 
   function toggleTheme() {

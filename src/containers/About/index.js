@@ -15,29 +15,10 @@ const About = () => {
   });
   const client = useContentfulClient();
 
-  React.useEffect(() => {
-    client
-      .getEntries({
-        content_type: "aboutSection",
-        limit: 1,
-      })
-      .then((entries) => {
-        const { heading, content } = entries.items[0].fields;
-
-        client
-          .getEntries({
-            content_type: "timelineItem",
-            order: "-fields.order",
-          })
-          .then((entries) => {
-            setLoading(false);
-            setData({
-              heading,
-              content,
-              timelineItems: entries.items.map((el) => el.fields),
-            });
-          });
-      });
+  React.useEffect(async () => {
+    const data = await client.getAboutSection();
+    setLoading(false);
+    setData(data);
   }, []);
 
   if (loading)
@@ -47,16 +28,15 @@ const About = () => {
       </div>
     );
 
-  const { heading, content, timelineItems } = data;
   return (
     <div className="about container" id="about">
       <div className="content">
-        <h2>{heading}</h2>
-        <Content markdown={content} />
+        <h2>{data.heading}</h2>
+        <Content markdown={data.content} />
       </div>
 
       <div className="timeline-wrapper">
-        <Timeline items={timelineItems} />
+        <Timeline items={data.timelineItems} />
       </div>
     </div>
   );
