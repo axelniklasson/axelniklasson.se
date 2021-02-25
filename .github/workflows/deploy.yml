@@ -5,6 +5,10 @@ on:
     branches:
       - master
 
+env:
+  REACT_APP_CONTENTFUL_SPACE: ${{ secrets.REACT_APP_CONTENTFUL_SPACE }}
+  REACT_APP_CONTENTFUL_ACCESSTOKEN: ${{ secrets.REACT_APP_CONTENTFUL_ACCESSTOKEN }}
+
 jobs:
   deploy:
     runs-on: ubuntu-18.04
