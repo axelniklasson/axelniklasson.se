@@ -10,10 +10,14 @@ const Portfolio = () => {
   const [portfolio, setPortfolio] = React.useState([]);
   const client = useContentfulClient();
 
-  React.useEffect(async () => {
-    const data = await client.getPortfolioSection();
-    setLoading(false);
-    setPortfolio(data);
+  React.useEffect(() => {
+    async function fetchData() {
+      const data = await client.getPortfolioSection();
+      setLoading(false);
+      setPortfolio(data);
+    }
+
+    fetchData();
   }, []);
 
   if (loading) return <Spinner />;

@@ -15,10 +15,14 @@ const Experience = () => {
   });
   const client = useContentfulClient();
 
-  React.useEffect(async () => {
-    const data = await client.getExperienceSection();
-    setLoading(false);
-    setData(data);
+  React.useEffect(() => {
+    async function fetchData() {
+      const data = await client.getExperienceSection();
+      setLoading(false);
+      setData(data);
+    }
+
+    fetchData();
   }, []);
 
   if (loading) return <Spinner />;

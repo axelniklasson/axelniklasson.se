@@ -14,10 +14,14 @@ const Header = React.forwardRef((props, ref) => {
   });
   const client = useContentfulClient();
 
-  React.useEffect(async () => {
-    const data = await client.getHeaderSection();
-    setLoading(false);
-    setData(data);
+  React.useEffect(() => {
+    async function fetchData() {
+      const data = await client.getHeaderSection();
+      setLoading(false);
+      setData(data);
+    }
+
+    fetchData();
   }, []);
 
   if (loading) {

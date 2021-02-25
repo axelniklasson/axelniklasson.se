@@ -12,9 +12,13 @@ const Navbar = ({ showNavbar }) => {
   const ref = React.createRef(null);
   const client = useContentfulClient();
 
-  React.useEffect(async () => {
-    const profilePicture = await client.getProfilePicture();
-    setProfilePicture(profilePicture);
+  React.useEffect(() => {
+    async function fetchData() {
+      const profilePicture = await client.getProfilePicture();
+      setProfilePicture(profilePicture);
+    }
+
+    fetchData();
   }, []);
 
   function toggleDropdown() {
@@ -22,10 +26,10 @@ const Navbar = ({ showNavbar }) => {
   }
 
   function jump(id) {
-    setShowDropdown(true);
     const el = document.getElementById(id);
     el.scrollIntoView();
     window.scrollBy(0, -ref.current.clientHeight);
+    toggleDropdown();
   }
 
   React.useEffect(() => {
