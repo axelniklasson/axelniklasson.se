@@ -1,3 +1,4 @@
+import throttle from "lodash.throttle";
 import React from "react";
 
 import Divider from "./components/Divider";
@@ -9,7 +10,6 @@ import Footer from "./containers/Footer";
 import Portfolio from "./containers/Portfolio";
 import Social from "./containers/Social";
 import { ThemeContext, themes } from "./theme/theme-context";
-import throttle from "lodash.throttle";
 
 const App = () => {
   const [showNavbar, setShowNavbar] = React.useState(false);

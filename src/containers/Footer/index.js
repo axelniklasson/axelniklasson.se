@@ -1,8 +1,24 @@
 import axios from "axios";
 import React from "react";
+import styled from "styled-components";
 
 import Spinner from "../../components/Spinner";
-import "./style.scss";
+
+const Wrapper = styled.div`
+  background: black;
+  padding: 25px;
+  color: white;
+  text-align: center;
+`;
+
+const Text = styled.p`
+  margin: 0;
+  font-weight: 400;
+`;
+
+const Link = styled.a`
+  font-weight: bold;
+`;
 
 const Footer = () => {
   const [loading, setLoading] = React.useState(true);
@@ -11,7 +27,7 @@ const Footer = () => {
   React.useEffect(() => {
     axios
       .get(
-        "https://api.github.com/repos/axelniklasson/axelniklasson.se/branches/master"
+        "https://api.github.com/repos/axelniklasson/axelniklasson.se/branches/master",
       )
       .then((res) => {
         setLoading(false);
@@ -39,12 +55,14 @@ const Footer = () => {
   }
 
   return (
-    <div className="footer">
-      <p>
+    <Wrapper>
+      <Text>
         Version{" "}
-        <a href="https://github.com/axelniklasson/axelniklasson.se">{sha}</a>
-      </p>
-    </div>
+        <Link href="https://github.com/axelniklasson/axelniklasson.se">
+          {sha}
+        </Link>
+      </Text>
+    </Wrapper>
   );
 };
 

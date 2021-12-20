@@ -2,9 +2,9 @@ import React from "react";
 
 import Content from "../../components/Content";
 import ExperienceTimeline from "../../components/ExperienceTimeline";
+import { Container } from "../../components/Layout";
 import Spinner from "../../components/Spinner";
 import useContentfulClient from "../../hooks/useContentfulClient";
-import "./style.scss";
 
 const Experience = () => {
   const [loading, setLoading] = React.useState(true);
@@ -25,17 +25,21 @@ const Experience = () => {
     fetchData();
   }, []);
 
-  if (loading) return <Spinner />;
-
   return (
-    <div className="experience container">
-      <div className="content">
-        <h2>{data.heading}</h2>
-        <Content markdown={data.content} />
-      </div>
+    <Container id="experience">
+      {loading ? (
+        <Spinner />
+      ) : (
+        <React.Fragment>
+          <React.Fragment>
+            <h2>{data.heading}</h2>
+            <Content markdown={data.content} />
+          </React.Fragment>
 
-      <ExperienceTimeline items={data.experienceItems} />
-    </div>
+          <ExperienceTimeline items={data.experienceItems} />
+        </React.Fragment>
+      )}
+    </Container>
   );
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
-import useContentfulClient from "../../hooks/useContentfulClient";
 
+import useContentfulClient from "../../hooks/useContentfulClient";
 import "./style.scss";
 
 const TITLE = "Axel Niklasson";
@@ -63,8 +63,7 @@ const Navbar = ({ showNavbar }) => {
 
           <div
             className={showDropdown ? "menuIcon toggled" : "menuIcon"}
-            onClick={toggleDropdown}
-          >
+            onClick={toggleDropdown}>
             <div />
             <div />
             <div />

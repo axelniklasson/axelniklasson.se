@@ -1,13 +1,15 @@
-import * as React from 'react';
+import * as React from "react";
 
 export const themes = {
   light: {
-    foreground: '#000000',
-    background: '#eeeeee',
+    type: "light",
+    foreground: "#000000",
+    background: "#eeeeee",
   },
   dark: {
-    foreground: '#ffffff',
-    background: '#222222',
+    type: "dark",
+    foreground: "#ffffff",
+    background: "#222222",
   },
 };
 
