@@ -9,12 +9,6 @@ import Experience from './containers/Experience';
 import Footer from './containers/Footer';
 import Portfolio from './containers/Portfolio';
 import Social from './containers/Social';
-
-
-
-
-
-
 import { ThemeContext, themes } from './theme/theme-context';
 
 const App = () => {
