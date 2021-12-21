@@ -1,5 +1,6 @@
 import throttle from 'lodash.throttle';
 import React from 'react';
+
 import Divider from './components/Divider';
 import Header from './components/Header';
 import Navbar from './components/Navbar';
@@ -8,6 +9,12 @@ import Experience from './containers/Experience';
 import Footer from './containers/Footer';
 import Portfolio from './containers/Portfolio';
 import Social from './containers/Social';
+
+
+
+
+
+
 import { ThemeContext, themes } from './theme/theme-context';
 
 const App = () => {
