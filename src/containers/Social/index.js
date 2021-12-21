@@ -1,14 +1,14 @@
-import React from "react";
+import React from 'react';
 
-import GitHub from "../../images/github.svg";
-import LinkedIn from "../../images/linkedin.svg";
-import "./style.scss";
+import GitHub from '../../images/github.svg';
+import LinkedIn from '../../images/linkedin.svg';
+import './style.scss';
 
-const LINKEDIN_URL = "https://linkedin.com/in/axelniklasson";
-const GITHUB_URL = "https://github.com/axelniklasson";
+const LINKEDIN_URL = 'https://linkedin.com/in/axelniklasson';
+const GITHUB_URL = 'https://github.com/axelniklasson';
 
 const SocialItem = ({ icon, text, link }) => (
-  <div className="social-item" onClick={() => window.open(link, "_blank")}>
+  <div className="social-item" onClick={() => window.open(link, '_blank')}>
     <img src={icon} alt={text} />
     <p>{text}</p>
   </div>

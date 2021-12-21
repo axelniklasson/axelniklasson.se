@@ -55,8 +55,8 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "npm run lint && node scripts/build.js",
-    "lint": "prettier -c --config .prettierrc.json src/**/*.js",
-    "format-js": "prettier --write .prettierrc.json src/**/*.js",
+    "lint": "prettier -c --config .prettierrc.json \"src/**/*.js\"",
+    "format-js": "prettier --write --config .prettierrc.json \"src/**/*.js\"",
     "test": "node scripts/test.js --env=jsdom"
   },
   "jest": {
@@ -103,6 +103,6 @@
   },
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "^1.4.4",
-    "prettier": "2.2.1"
+    "prettier": "^2.5.1"
   }
 }

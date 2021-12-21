@@ -1,16 +1,16 @@
-import React from "react";
+import React from 'react';
 
-import Content from "../../components/Content";
-import Spinner from "../../components/Spinner";
-import Timeline from "../../components/Timeline";
-import useContentfulClient from "../../hooks/useContentfulClient";
-import "./style.scss";
+import Content from '../../components/Content';
+import Spinner from '../../components/Spinner';
+import Timeline from '../../components/Timeline';
+import useContentfulClient from '../../hooks/useContentfulClient';
+import './style.scss';
 
 const About = () => {
   const [loading, setLoading] = React.useState(true);
   const [data, setData] = React.useState({
-    heading: "",
-    content: "",
+    heading: '',
+    content: '',
     timelineItems: [],
   });
   const client = useContentfulClient();

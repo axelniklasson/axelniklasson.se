@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import PortfolioItem from "../../components/PortfolioItem";
-import Spinner from "../../components/Spinner";
-import useContentfulClient from "../../hooks/useContentfulClient";
-import "./style.scss";
+import PortfolioItem from '../../components/PortfolioItem';
+import Spinner from '../../components/Spinner';
+import useContentfulClient from '../../hooks/useContentfulClient';
+import './style.scss';
 
 const Portfolio = () => {
   const [loading, setLoading] = React.useState(true);
